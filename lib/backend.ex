@@ -1,7 +1,10 @@
 defmodule Cardano.Backend do
+  def create_wallet(name, mnemonic_sentence, passphrase, mnemonic_second_factor, address_pool_gap) do
+    data = %{name: name, mnemonic_sentence: mnemonic_sentence, passphrase: passphrase, address_pool_gap: address_pool_gap}
 
-  def create_wallet(name, mnemonic, passphrase, mnemonic_2f \\ nil) do
-    data = %{name: name, mnemonic_sentence: mnemonic, passphrase: passphrase}
+    if mnemonic_second_factor != nil,
+      do: Map.put_new(data, :mnemonic_second_factor, mnemonic_second_factor)
+
     case Tesla.post(client(), "/wallets", data) do
       {:ok, result} -> response(result)
     end
