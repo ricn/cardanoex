@@ -3,83 +3,155 @@ defmodule Cardano.WalletTest do
   doctest Cardano.Wallet
   alias Cardano.Wallet
 
-  test "create wallet successfully" do
-    name = "wallet #1"
-    mnemonic = String.split(Mnemonic.generate(), " ")
-    passphrase = "Super_Sekret3.14!"
+  describe "create wallets" do
+    test "create wallet successfully" do
+      name = "wallet #1"
+      mnemonic = String.split(Mnemonic.generate(), " ")
+      passphrase = "Super_Sekret3.14!"
 
-    {:ok, wallet} =
-      Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
+      {:ok, wallet} =
+        Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
 
-    assert wallet
+      assert wallet
+    end
+
+    test "create wallet successfully with mnemonic_second_factor" do
+      name = "wallet #1"
+      mnemonic1 = String.split(Mnemonic.generate(), " ")
+      mnemonic2 = String.split(Mnemonic.generate(), " ")
+      passphrase = "Super_Sekret3.14!"
+
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: name,
+          mnemonic_sentence: mnemonic1,
+          passphrase: passphrase,
+          mnemonic_second_factor: mnemonic2
+        )
+
+      assert wallet
+    end
+
+    test "create wallet successfully with custom address_pool_gap" do
+      name = "wallet #1"
+      mnemonic = String.split(Mnemonic.generate(), " ")
+      passphrase = "Super_Sekret3.14!"
+
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: name,
+          mnemonic_sentence: mnemonic,
+          passphrase: passphrase,
+          address_pool_gap: 1000
+        )
+
+      assert wallet["address_pool_gap"] == 1000
+    end
+
+    test "try create wallet with bad mnemonic" do
+      name = "wallet #1"
+      mnemonic = String.split("one two three", " ")
+      passphrase = "Super_Sekret3.14!"
+
+      {:error, message} =
+        Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
+
+      assert "Error in $['mnemonic_sentence']: Invalid number of words: 15, 18, 21 or 24 words are expected." ==
+               message
+    end
+
+    test "try create wallet with weak passphrase" do
+      name = "wallet #1"
+      mnemonic = String.split(Mnemonic.generate(), " ")
+      passphrase = "1"
+
+      {:error, message} =
+        Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
+
+      assert "Error in $.passphrase: passphrase is too short: expected at least 10 characters" ==
+               message
+    end
+
+    test "try create wallet with no name" do
+      name = nil
+      mnemonic = String.split(Mnemonic.generate(), " ")
+      passphrase = "Super_Sekret3.14!"
+
+      {:error, message} =
+        Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
+
+      assert "Error in $.name: parsing WalletName failed, expected String, but encountered Null" ==
+               message
+    end
   end
 
-  test "create wallet successfully with mnemonic_second_factor" do
-    name = "wallet #1"
-    mnemonic1 = String.split(Mnemonic.generate(), " ")
-    mnemonic2 = String.split(Mnemonic.generate(), " ")
-    passphrase = "Super_Sekret3.14!"
+  describe "fetch wallets" do
+    test "fetch wallet successfully" do
+      {:ok, created_wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!"
+        )
 
-    {:ok, wallet} =
-      Wallet.create_wallet(
-        name: name,
-        mnemonic_sentence: mnemonic1,
-        passphrase: passphrase,
-        mnemonic_second_factor: mnemonic2
-      )
+      {:ok, fetched_wallet} = Wallet.fetch(created_wallet["id"])
+      assert created_wallet["id"] == fetched_wallet["id"]
+    end
 
-    assert wallet
+    test "try fetch wallet with invalid id" do
+      {:error, message} = Wallet.fetch("abc-123")
+      assert "wallet id should be a hex-encoded string of 40 characters" == message
+    end
+
+    test "try fetch wallet with correctly formatted id but non existent" do
+      {:error, message} = Wallet.fetch("511b0ff88918401c119d3c6ccd4156e53444b5f0")
+
+      assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
+               message
+    end
   end
 
-  test "create wallet successfully with custom address_pool_gap" do
-    name = "wallet #1"
-    mnemonic = String.split(Mnemonic.generate(), " ")
-    passphrase = "Super_Sekret3.14!"
+  describe "list wallets" do
+    test "list all wallets successfully" do
+      {:ok, _} =
+        Wallet.create_wallet(
+          name: "a wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!"
+        )
 
-    {:ok, wallet} =
-      Wallet.create_wallet(
-        name: name,
-        mnemonic_sentence: mnemonic,
-        passphrase: passphrase,
-        address_pool_gap: 1000
-      )
+      {:ok, result} = Wallet.list()
 
-    assert wallet["address_pool_gap"] == 1000
+      assert Enum.any?(result, fn w ->
+               w["name"] == "a wallet"
+             end)
+    end
   end
 
-  test "try create wallet with bad mnemonic" do
-    name = "wallet #1"
-    mnemonic = String.split("one two three", " ")
-    passphrase = "Super_Sekret3.14!"
+  describe "delete wallets" do
+    test "delete wallet successfully" do
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!"
+        )
 
-    {:error, message} =
-      Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
+      {:ok, _} = Wallet.fetch(wallet["id"])
+      # TODO: We can do better here?
+      {:ok, _} = Wallet.delete(wallet["id"])
+      {:error, message} = Wallet.fetch(wallet["id"])
+      assert "I couldn't find a wallet with the given id: #{wallet["id"]}" == message
+    end
 
-    assert "Error in $['mnemonic_sentence']: Invalid number of words: 15, 18, 21 or 24 words are expected." ==
-             message
-  end
+    test "try delete wallet with invalid id" do
+      {:error, message} = Wallet.delete("abc-123")
+      assert "wallet id should be a hex-encoded string of 40 characters" == message
+    end
 
-  test "try create wallet with weak passphrase" do
-    name = "wallet #1"
-    mnemonic = String.split(Mnemonic.generate(), " ")
-    passphrase = "1"
-
-    {:error, message} =
-      Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
-
-    assert "Error in $.passphrase: passphrase is too short: expected at least 10 characters" ==
-             message
-  end
-
-  test "try create wallet with no name" do
-    name = nil
-    mnemonic = String.split(Mnemonic.generate(), " ")
-    passphrase = "Super_Sekret3.14!"
-
-    {:error, message} =
-      Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: passphrase)
-
-    assert "Error in $.name: parsing WalletName failed, expected String, but encountered Null" ==
-             message
+    test "try delete wallet with correctly formatted id but non existent" do
+      {:error, message} = Wallet.delete("511b0ff88918401c119d3c6ccd4156e53444b5f0")
+      assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
+    end
   end
 end

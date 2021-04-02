@@ -7,6 +7,9 @@ Features
 * List historical transactions
 * Send transfer
 
-$10 000
-    * Block explorer example
-    * Wallet example
+0. Fix better error messages
+1. Convert map to named struct
+2. Use exvcr
+
+- Färdigställ wallet-delen
+- Skriv ett proposal på $12 000

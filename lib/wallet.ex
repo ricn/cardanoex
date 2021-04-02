@@ -20,4 +20,16 @@ defmodule Cardano.Wallet do
       opts.address_pool_gap
     )
   end
+
+  def fetch(id) do
+    Backend.fetch_wallet(id)
+  end
+
+  def list() do
+    Backend.list_wallets()
+  end
+
+  def delete(id) do
+    Backend.delete_wallet(id)
+  end
 end
