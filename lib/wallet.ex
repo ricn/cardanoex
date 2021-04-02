@@ -32,4 +32,8 @@ defmodule Cardano.Wallet do
   def delete(id) do
     Backend.delete_wallet(id)
   end
+
+  def fetch_utxo_stats(id) do
+    Backend.fetch_wallet_utxo_stats(id)
+  end
 end

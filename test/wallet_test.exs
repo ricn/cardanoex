@@ -154,4 +154,28 @@ defmodule Cardano.WalletTest do
       assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
     end
   end
+
+  describe "utxo stats" do
+    test "fetch successfully" do
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!"
+        )
+
+      {:ok, utox_stats} = Wallet.fetch_utxo_stats(wallet["id"])
+      assert utox_stats["distribution"] != nil
+    end
+
+    test "try fetch with invalid id" do
+      {:error, message} = Wallet.fetch_utxo_stats("abc-123")
+      assert "wallet id should be a hex-encoded string of 40 characters" == message
+    end
+
+    test "try fetch with correctly formatted id but non existent" do
+      {:error, message} = Wallet.fetch_utxo_stats("511b0ff88918401c119d3c6ccd4156e53444b5f0")
+      assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
+    end
+  end
 end

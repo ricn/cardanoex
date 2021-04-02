@@ -33,6 +33,12 @@ defmodule Cardano.Backend do
     end
   end
 
+  def fetch_wallet_utxo_stats(id) do
+    case Tesla.get(client(), "/wallets/#{id}/statistics/utxos") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       # This is probably due to a bug in the Cardano wallet: https://github.com/input-output-hk/cardano-wallet/issues/2596
