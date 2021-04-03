@@ -178,4 +178,67 @@ defmodule Cardano.WalletTest do
       assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
     end
   end
+
+  describe "update metadata" do
+    test "update metadata successfully" do
+      {:ok, created_wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!")
+
+      {:ok, updated_wallet} = Wallet.update(created_wallet["id"], "My wallet")
+      assert created_wallet["id"] == updated_wallet["id"]
+      assert "My wallet" == updated_wallet["name"]
+    end
+
+    test "try update metadata with no name" do
+      {:ok, created_wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!")
+
+      {:error, message} = Wallet.update(created_wallet["id"], "")
+      assert "Error in $.name: name is too short: expected at least 1 character" == message
+    end
+
+    test "try update with invalid wallet id" do
+      {:error, message} = Wallet.update("abc-123", "Wallet")
+      assert "wallet id should be a hex-encoded string of 40 characters" == message
+    end
+
+    test "try update with correctly formatted id but non existent" do
+      {:error, message} = Wallet.update("511b0ff88918401c119d3c6ccd4156e53444b5f0", "Wallet")
+      assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
+    end
+  end
+
+  describe "update passphrase" do
+    test "update passphrase successfully" do
+      passphrase = "Super_Sekret3.14!"
+      {:ok, created_wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: passphrase)
+
+      {:ok, _} = Wallet.update_passphrase(created_wallet["id"], passphrase, "New_Super_Sekret_6.28!")
+
+      {:ok, updated_wallet} = Wallet.fetch(created_wallet["id"])
+      assert created_wallet["passphrase"]["last_updated_at"] != updated_wallet["passphrase"]["last_updated_at"]
+    end
+
+    test "try update passphrase when old passphrase is incorrect" do
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: "Super_Sekret3.14!")
+
+      {:error, message} = Wallet.update_passphrase(wallet["id"], "Wrong Old Password!123", "New_Super_Sekret_6.28!")
+      wid = wallet["id"]
+      assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: #{wid}" == message
+    end
+  end
 end

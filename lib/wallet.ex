@@ -36,4 +36,12 @@ defmodule Cardano.Wallet do
   def fetch_utxo_stats(id) do
     Backend.fetch_wallet_utxo_stats(id)
   end
+
+  def update(id, name) do
+    Backend.update_wallet_metadata(id, name)
+  end
+
+  def update_passphrase(id, old_passphrase, new_passphrase) do
+    Backend.update_wallet_passphrase(id, old_passphrase, new_passphrase)
+  end
 end

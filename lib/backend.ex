@@ -39,10 +39,25 @@ defmodule Cardano.Backend do
     end
   end
 
+  def update_wallet_metadata(id, name) do
+    data = %{name: name}
+    case Tesla.put(client(), "/wallets/#{id}", data) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def update_wallet_passphrase(id, old_passphrase, new_passphrase) do
+    data = %{old_passphrase: old_passphrase, new_passphrase: new_passphrase}
+    case Tesla.put(client(), "/wallets/#{id}/passphrase", data) do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       # This is probably due to a bug in the Cardano wallet: https://github.com/input-output-hk/cardano-wallet/issues/2596
       result.status == 404 -> {:error, Jason.decode!(result.body)["message"]}
+      result.status == 403 -> {:error, Jason.decode!(result.body)["message"]}
       result.status == 400 -> {:error, result.body["message"]}
       true -> {:ok, result.body}
     end
