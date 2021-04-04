@@ -262,7 +262,6 @@ defmodule Cardano.WalletTest do
 
     test "try update with correctly formatted id but non existent" do
       {:error, message} = Wallet.update_passphrase("511b0ff88918401c119d3c6ccd4156e53444b5f0", "Super_Sekret3.14!", "Super_Sekret3.14!2")
-
       assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
     end
   end
