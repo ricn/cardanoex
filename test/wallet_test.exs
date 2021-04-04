@@ -240,5 +240,30 @@ defmodule Cardano.WalletTest do
       wid = wallet["id"]
       assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: #{wid}" == message
     end
+
+    test "try update passphrase when new passphrase is too weak" do
+      passphrase = "Super_Sekret3.14!"
+      {:ok, wallet} =
+        Wallet.create_wallet(
+          name: "wallet",
+          mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+          passphrase: passphrase)
+
+      {:error, message} = Wallet.update_passphrase(wallet["id"], passphrase, "weak")
+
+      assert "Error in $['new_passphrase']: passphrase is too short: expected at least 10 characters" == message
+    end
+
+    test "try update passphrase with invalid wallet id" do
+      {:error, message} = Wallet.update_passphrase("abc-123", "Super_Sekret3.14!", "Super_Sekret3.14!2")
+
+      assert "wallet id should be a hex-encoded string of 40 characters" == message
+    end
+
+    test "try update with correctly formatted id but non existent" do
+      {:error, message} = Wallet.update_passphrase("511b0ff88918401c119d3c6ccd4156e53444b5f0", "Super_Sekret3.14!", "Super_Sekret3.14!2")
+
+      assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" == message
+    end
   end
 end
