@@ -1,4 +1,5 @@
 defmodule Cardano.Backend do
+
   def create_wallet(name, mnemonic_sentence, passphrase, mnemonic_second_factor, address_pool_gap) do
     data = %{
       name: name,
@@ -41,6 +42,7 @@ defmodule Cardano.Backend do
 
   def update_wallet_metadata(id, name) do
     data = %{name: name}
+
     case Tesla.put(client(), "/wallets/#{id}", data) do
       {:ok, result} -> response(result)
     end
@@ -48,6 +50,7 @@ defmodule Cardano.Backend do
 
   def update_wallet_passphrase(id, old_passphrase, new_passphrase) do
     data = %{old_passphrase: old_passphrase, new_passphrase: new_passphrase}
+
     case Tesla.put(client(), "/wallets/#{id}/passphrase", data) do
       {:ok, result} -> response(result)
     end
