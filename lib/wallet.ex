@@ -10,21 +10,8 @@ defmodule Cardano.Wallet do
             state: %{}
 
   alias Cardano.Backend
+  alias Cardano.Util
 
-  def keys_to_atom(map) do
-    Map.new(
-     map,
-     fn {k, v} ->
-       v2 = cond do
-         is_map(v) -> keys_to_atom(v)
-         v in [[nil], nil] -> nil
-         is_list(v) -> Enum.map(v, fn o -> keys_to_atom(o) end)
-         true -> v
-       end
-       {String.to_atom("#{k}"), v2}
-     end
-    )
-   end
 
   def create_wallet(options \\ []) do
     default = [
@@ -46,21 +33,21 @@ defmodule Cardano.Wallet do
     )
 
     case result do
-      {:ok, wallet} -> {:ok, keys_to_atom(wallet)}
+      {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
       {:error, message} -> {:error, message}
     end
   end
 
   def fetch(id) do
     case Backend.fetch_wallet(id) do
-      {:ok, wallet} -> {:ok, keys_to_atom(wallet)}
+      {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
       {:error, message} -> {:error, message}
     end
   end
 
   def list() do
     case Backend.list_wallets() do
-      {:ok, wallets} -> {:ok, Enum.map(wallets, fn(w) -> keys_to_atom(w) end)}
+      {:ok, wallets} -> {:ok, Enum.map(wallets, fn(w) -> Util.keys_to_atom(w) end)}
       {:error, message} -> {:error, message}
     end
   end
@@ -74,14 +61,14 @@ defmodule Cardano.Wallet do
 
   def fetch_utxo_stats(id) do
     case Backend.fetch_wallet_utxo_stats(id) do
-      {:ok, utxo_stats} -> {:ok, keys_to_atom(utxo_stats)}
+      {:ok, utxo_stats} -> {:ok, Util.keys_to_atom(utxo_stats)}
       {:error, message} -> {:error, message}
     end
   end
 
   def update(id, name) do
     case Backend.update_wallet_metadata(id, name) do
-      {:ok, wallet} -> {:ok, keys_to_atom(wallet)}
+      {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
       {:error, message} -> {:error, message}
     end
   end
