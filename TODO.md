@@ -8,7 +8,6 @@ Features
  * Send transfer
 
 0. Fix better error messages
-1. Convert map to named struct
 2. Mock?
 3. Refactor tests
 5. config url?

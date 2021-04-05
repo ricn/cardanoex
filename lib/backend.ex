@@ -67,8 +67,10 @@ defmodule Cardano.Backend do
   end
 
   def client() do
+    base_url = Application.get_env(:cardano, :wallet_base_url, "http://localhost:8090/v2")
+
     middleware = [
-      {Tesla.Middleware.BaseUrl, "http://localhost:8090/v2"},
+      {Tesla.Middleware.BaseUrl, base_url},
       Tesla.Middleware.JSON
     ]
 
