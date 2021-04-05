@@ -25,3 +25,5 @@ cardano-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+TODO.md
