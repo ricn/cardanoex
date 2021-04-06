@@ -12,7 +12,6 @@ defmodule Cardano.Wallet do
   alias Cardano.Backend
   alias Cardano.Util
 
-
   def create_wallet(options \\ []) do
     default = [
       name: nil,
@@ -24,13 +23,14 @@ defmodule Cardano.Wallet do
 
     opts = Enum.into(Keyword.merge(default, options), %{})
 
-    result = Backend.create_wallet(
-      opts.name,
-      opts.mnemonic_sentence,
-      opts.passphrase,
-      opts.mnemonic_second_factor,
-      opts.address_pool_gap
-    )
+    result =
+      Backend.create_wallet(
+        opts.name,
+        opts.mnemonic_sentence,
+        opts.passphrase,
+        opts.mnemonic_second_factor,
+        opts.address_pool_gap
+      )
 
     case result do
       {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
@@ -47,7 +47,7 @@ defmodule Cardano.Wallet do
 
   def list() do
     case Backend.list_wallets() do
-      {:ok, wallets} -> {:ok, Enum.map(wallets, fn(w) -> Util.keys_to_atom(w) end)}
+      {:ok, wallets} -> {:ok, Enum.map(wallets, fn w -> Util.keys_to_atom(w) end)}
       {:error, message} -> {:error, message}
     end
   end

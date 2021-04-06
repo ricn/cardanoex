@@ -1,5 +1,4 @@
 defmodule Cardano.Backend do
-
   def create_wallet(name, mnemonic_sentence, passphrase, mnemonic_second_factor, address_pool_gap) do
     data = %{
       name: name,
