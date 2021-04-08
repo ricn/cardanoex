@@ -55,6 +55,24 @@ defmodule Cardano.Backend do
     end
   end
 
+  def estimate_transaction_fee(wallet_id, transaction) do
+    case Tesla.post(client(), "/wallets/#{wallet_id}/payment-fees", transaction) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def list_addresses(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/addresses") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def inspect_address(address) do
+    case Tesla.get(client(), "/addresses/#{address}") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       # This is probably due to a bug in the Cardano wallet: https://github.com/input-output-hk/cardano-wallet/issues/2596
