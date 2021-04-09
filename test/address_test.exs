@@ -26,6 +26,7 @@ defmodule Cardano.AddressTest do
 
     test "try list addresses with correctly formatted id but non existent" do
       {:error, message} = Address.list("511b0ff88918401c119d3c6ccd4156e53444b5f0")
+
       assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
                message
     end
@@ -38,6 +39,5 @@ defmodule Cardano.AddressTest do
       {:ok, address} = Address.inspect(List.first(addresses)["id"])
       assert address != nil
     end
-
   end
 end
