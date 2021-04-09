@@ -3,14 +3,6 @@ defmodule Cardano.WalletTest do
   doctest Cardano.Wallet
   alias Cardano.Wallet
 
-  ExUnit.after_suite(fn _ ->
-    {:ok, all_wallets} = Wallet.list()
-
-    Enum.each(all_wallets, fn w ->
-      Wallet.delete(w.id)
-    end)
-  end)
-
   def wallet_attrs do
     [
       name: "wallet #1",
