@@ -1,6 +1,12 @@
 # Cardano
 
-**TODO: Add description**
+The library is still in early development. Consider it experimental the API might change in the future.
+
+This library is the implementation of [the idea](https://cardano.ideascale.com/a/dtd/Elixir-library/350635-48088) submitted to Catalyst project.
+
+## Prerequisites
+
+1. You need to have the [cardano-wallet](https://github.com/input-output-hk/cardano-wallet) up and running
 
 ## Installation
 
