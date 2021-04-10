@@ -23,5 +23,53 @@ defmodule Cardano.TransactionTest do
       {:ok, estimated_fees} = Transaction.estimate_fee(wallet.id, transaction)
       assert estimated_fees != nil
     end
+
+    test "try estimate fee with 1 lovelace", %{wallet: wallet} do
+      transaction = %{
+        payments: [
+          %{
+            address:
+              "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
+            amount: %{quantity: 1, unit: "lovelace"}
+          }
+        ]
+      }
+
+      {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
+
+      expected_message =
+        "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.000000     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] "
+
+      assert expected_message == message
+    end
+
+    test "try estimate fee with no payments", %{wallet: wallet} do
+      transaction = %{
+        payments: []
+      }
+
+      {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
+
+      expected_message = "Error in $.payments: parsing NonEmpty failed, unexpected empty list"
+      assert expected_message == message
+    end
+
+    test "estimate fee with assets included", %{wallet: wallet} do
+      transaction = %{
+        payments: [
+          %{
+            address:
+              "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
+            amount: %{quantity: 1_407_406, unit: "lovelace"},
+            assets: [
+              %{policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7", asset_name: "", quantity: 1}
+            ]
+          }
+        ]
+      }
+
+      {:ok, estimated_fees} = Transaction.estimate_fee(wallet.id, transaction)
+      assert estimated_fees != nil
+    end
   end
 end
