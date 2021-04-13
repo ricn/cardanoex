@@ -72,7 +72,7 @@ defmodule Cardano.TransactionTest do
       assert estimated_fees != nil
     end
 
-    test "estimate fee with too low amount of ada", %{wallet: wallet} do
+    test "try estimate fee with too low amount of ada", %{wallet: wallet} do
       transaction = %{
         payments: [
           %{
@@ -90,7 +90,7 @@ defmodule Cardano.TransactionTest do
       assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.407406     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " == message
     end
 
-    test "estimate fee with too low amount of test asset", %{wallet: wallet} do
+    test "try estimate fee with too low amount of test asset", %{wallet: wallet} do
       transaction = %{
         payments: [
           %{
@@ -108,7 +108,7 @@ defmodule Cardano.TransactionTest do
       assert "Error in $.payments[0].assets: parsing AddressAmount failed, Error while deserializing token map from JSON: Encountered zero-valued quantity for token '' within policy '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'." == message
     end
 
-    test "estimate fee with invalid policy id", %{wallet: wallet} do
+    test "try estimate fee with invalid policy id", %{wallet: wallet} do
       transaction = %{
         payments: [
           %{
@@ -126,5 +126,51 @@ defmodule Cardano.TransactionTest do
       assert "I can't process this payment as there are not enough funds available in the wallet. I am missing: coin: 0.000000 tokens:   - policy: 7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7     token:     quantity: 1 " == message
     end
 
+    test "estimate fee with metadata", %{wallet: wallet} do
+      transaction = %{
+        payments: [
+          %{
+            address:
+              "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
+            amount: %{quantity: 1_407_406, unit: "lovelace"}
+          }
+        ],
+        metadata: %{"0" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
+      }
+      {:ok, estimated_fees} = Transaction.estimate_fee(wallet.id, transaction)
+      estimated_max = estimated_min = 168_801
+      assert estimated_fees.estimated_max.quantity > estimated_max
+      assert estimated_fees.estimated_min.quantity > estimated_min
+    end
+
+    test "try estimate fee with metadata not containing an unsigned integer key at the top level", %{wallet: wallet} do
+      transaction = %{
+        payments: [
+          %{
+            address:
+              "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
+            amount: %{quantity: 1_407_406, unit: "lovelace"}
+          }
+        ],
+        metadata: %{"cardano" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
+      }
+      {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
+      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" == message
+    end
+
+    test "try estimate fee with metadata containing too long string", %{wallet: wallet} do
+      transaction = %{
+        payments: [
+          %{
+            address:
+              "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
+            amount: %{quantity: 1_407_406, unit: "lovelace"}
+          }
+        ],
+        metadata: %{"0" => %{"string" => String.duplicate("a", 65)}, "1" => %{"int" => 14}}
+      }
+      {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
+      assert "Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes." == message
+    end
   end
 end
