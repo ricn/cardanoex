@@ -173,4 +173,54 @@ defmodule Cardano.TransactionTest do
       assert "Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes." == message
     end
   end
+
+  describe "create transaction" do
+    test "create transaction successfully", %{wallet: wallet} do
+      transaction = %{
+        passphrase: "Super_Sekret3.14!",
+        payments: [
+          %{
+            address:
+              "addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f",
+            amount: %{quantity: 1_000_000, unit: "lovelace"}
+          }
+        ]
+      }
+
+      {:ok, transaction} = Transaction.create(wallet.id, transaction)
+      assert transaction != nil
+    end
+
+    test "try create transaction with invalid passphrase", %{wallet: wallet} do
+      transaction = %{
+        passphrase: "Bad",
+        payments: [
+          %{
+            address:
+              "addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f",
+            amount: %{quantity: 1_000_000, unit: "lovelace"}
+          }
+        ]
+      }
+
+      {:error, message} = Transaction.create(wallet.id, transaction)
+      assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52" == message
+    end
+
+    test "create transaction successfully with metadata", %{wallet: wallet} do
+      transaction = %{
+        passphrase: "Super_Sekret3.14!",
+        payments: [
+          %{
+            address:
+              "addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f",
+            amount: %{quantity: 1_407_406, unit: "lovelace"}
+          }
+        ],
+        metadata: %{"0" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
+      }
+      {:ok, transaction} = Transaction.create(wallet.id, transaction)
+      assert transaction != nil
+    end
+  end
 end

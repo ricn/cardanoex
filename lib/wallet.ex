@@ -1,14 +1,4 @@
 defmodule Cardano.Wallet do
-  defstruct id: nil,
-            name: nil,
-            address_pool_gap: nil,
-            assets: [],
-            balance: %{},
-            delegation: %{},
-            passphrase: %{},
-            tip: %{},
-            state: %{}
-
   alias Cardano.Backend
   alias Cardano.Util
 

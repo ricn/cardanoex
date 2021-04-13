@@ -4,7 +4,14 @@ defmodule Cardano.Transaction do
 
   def estimate_fee(wallet_id, transaction) do
     case Backend.estimate_transaction_fee(wallet_id, transaction) do
-      {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
+      {:ok, fee_estimation} -> {:ok, Util.keys_to_atom(fee_estimation)}
+      {:error, message} -> {:error, message}
+    end
+  end
+
+  def create(wallet_id, transaction) do
+    case Backend.create_transaction(wallet_id, transaction) do
+      {:ok, transaction} -> {:ok, Util.keys_to_atom(transaction)}
       {:error, message} -> {:error, message}
     end
   end
