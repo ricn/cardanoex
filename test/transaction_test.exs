@@ -222,5 +222,21 @@ defmodule Cardano.TransactionTest do
       {:ok, transaction} = Transaction.create(wallet.id, transaction)
       assert transaction != nil
     end
+
+    test "try create transaction with invalid metadata", %{wallet: wallet} do
+      transaction = %{
+        passphrase: "Super_Sekret3.14!",
+        payments: [
+          %{
+            address:
+              "addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f",
+            amount: %{quantity: 1_407_406, unit: "lovelace"}
+          }
+        ],
+        metadata: %{"cardano" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
+      }
+      {:error, message} = Transaction.create(wallet.id, transaction)
+      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" == message
+    end
   end
 end
