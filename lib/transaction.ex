@@ -15,4 +15,11 @@ defmodule Cardano.Transaction do
       {:error, message} -> {:error, message}
     end
   end
+
+  def list(wallet_id) do
+    case Backend.list_transactions(wallet_id) do
+      {:ok, transactions} -> {:ok, Enum.map(transactions, fn t -> Util.keys_to_atom(t) end)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

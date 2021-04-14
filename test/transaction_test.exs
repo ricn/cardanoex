@@ -239,4 +239,11 @@ defmodule Cardano.TransactionTest do
       assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" == message
     end
   end
+
+  describe "list transactions" do
+    test "list transactions successfully", %{wallet: wallet} do
+      {:ok, transactions} = Transaction.list(wallet.id)
+      assert is_list(transactions)
+    end
+  end
 end
