@@ -67,8 +67,17 @@ defmodule Cardano.Backend do
     end
   end
 
-  def list_transactions(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions") do
+  def list_transactions(wallet_id, start, stop, order, min_withdrawal) do
+    query =
+      [start: start, end: stop, order: order, minWithdrawal: min_withdrawal]
+      |> Enum.filter(fn o ->
+        {_, v} = o
+        v != nil
+      end)
+
+    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions",
+           query: query
+         ) do
       {:ok, result} -> response(result)
     end
   end

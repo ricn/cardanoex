@@ -62,7 +62,11 @@ defmodule Cardano.TransactionTest do
               "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
             amount: %{quantity: 1_407_406, unit: "lovelace"},
             assets: [
-              %{policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7", asset_name: "", quantity: 1}
+              %{
+                policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7",
+                asset_name: "",
+                quantity: 1
+              }
             ]
           }
         ]
@@ -80,14 +84,20 @@ defmodule Cardano.TransactionTest do
               "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
             amount: %{quantity: 0_407_406, unit: "lovelace"},
             assets: [
-              %{policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7", asset_name: "", quantity: 1}
+              %{
+                policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7",
+                asset_name: "",
+                quantity: 1
+              }
             ]
           }
         ]
       }
 
       {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
-      assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.407406     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " == message
+
+      assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.407406     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " ==
+               message
     end
 
     test "try estimate fee with too low amount of test asset", %{wallet: wallet} do
@@ -98,14 +108,20 @@ defmodule Cardano.TransactionTest do
               "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
             amount: %{quantity: 1_407_406, unit: "lovelace"},
             assets: [
-              %{policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7", asset_name: "", quantity: 0}
+              %{
+                policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7",
+                asset_name: "",
+                quantity: 0
+              }
             ]
           }
         ]
       }
 
       {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
-      assert "Error in $.payments[0].assets: parsing AddressAmount failed, Error while deserializing token map from JSON: Encountered zero-valued quantity for token '' within policy '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'." == message
+
+      assert "Error in $.payments[0].assets: parsing AddressAmount failed, Error while deserializing token map from JSON: Encountered zero-valued quantity for token '' within policy '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'." ==
+               message
     end
 
     test "try estimate fee with invalid policy id", %{wallet: wallet} do
@@ -116,14 +132,20 @@ defmodule Cardano.TransactionTest do
               "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
             amount: %{quantity: 1_407_406, unit: "lovelace"},
             assets: [
-              %{policy_id: "7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7", asset_name: "", quantity: 1}
+              %{
+                policy_id: "7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7",
+                asset_name: "",
+                quantity: 1
+              }
             ]
           }
         ]
       }
 
       {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
-      assert "I can't process this payment as there are not enough funds available in the wallet. I am missing: coin: 0.000000 tokens:   - policy: 7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7     token:     quantity: 1 " == message
+
+      assert "I can't process this payment as there are not enough funds available in the wallet. I am missing: coin: 0.000000 tokens:   - policy: 7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7     token:     quantity: 1 " ==
+               message
     end
 
     test "estimate fee with metadata", %{wallet: wallet} do
@@ -137,13 +159,15 @@ defmodule Cardano.TransactionTest do
         ],
         metadata: %{"0" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
       }
+
       {:ok, estimated_fees} = Transaction.estimate_fee(wallet.id, transaction)
       estimated_max = estimated_min = 168_801
       assert estimated_fees.estimated_max.quantity > estimated_max
       assert estimated_fees.estimated_min.quantity > estimated_min
     end
 
-    test "try estimate fee with metadata not containing an unsigned integer key at the top level", %{wallet: wallet} do
+    test "try estimate fee with metadata not containing an unsigned integer key at the top level",
+         %{wallet: wallet} do
       transaction = %{
         payments: [
           %{
@@ -154,8 +178,11 @@ defmodule Cardano.TransactionTest do
         ],
         metadata: %{"cardano" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
       }
+
       {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
-      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" == message
+
+      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" ==
+               message
     end
 
     test "try estimate fee with metadata containing too long string", %{wallet: wallet} do
@@ -169,8 +196,11 @@ defmodule Cardano.TransactionTest do
         ],
         metadata: %{"0" => %{"string" => String.duplicate("a", 65)}, "1" => %{"int" => 14}}
       }
+
       {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
-      assert "Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes." == message
+
+      assert "Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes." ==
+               message
     end
   end
 
@@ -204,7 +234,9 @@ defmodule Cardano.TransactionTest do
       }
 
       {:error, message} = Transaction.create(wallet.id, transaction)
-      assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52" == message
+
+      assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52" ==
+               message
     end
 
     test "create transaction successfully with metadata", %{wallet: wallet} do
@@ -219,6 +251,7 @@ defmodule Cardano.TransactionTest do
         ],
         metadata: %{"0" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
       }
+
       {:ok, transaction} = Transaction.create(wallet.id, transaction)
       assert transaction != nil
     end
@@ -235,8 +268,11 @@ defmodule Cardano.TransactionTest do
         ],
         metadata: %{"cardano" => %{"string" => "cardano"}, "1" => %{"int" => 14}}
       }
+
       {:error, message} = Transaction.create(wallet.id, transaction)
-      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" == message
+
+      assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" ==
+               message
     end
   end
 
@@ -244,6 +280,13 @@ defmodule Cardano.TransactionTest do
     test "list transactions successfully", %{wallet: wallet} do
       {:ok, transactions} = Transaction.list(wallet.id)
       assert is_list(transactions)
+    end
+
+    test "list transactions in ascending order", %{wallet: wallet} do
+      {:ok, transactions_asc} = Transaction.list(wallet.id, order: :ascending)
+      {:ok, transactions_desc} = Transaction.list(wallet.id, order: :descending)
+
+      assert Enum.reverse(transactions_asc) == transactions_desc
     end
   end
 end

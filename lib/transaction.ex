@@ -16,8 +16,23 @@ defmodule Cardano.Transaction do
     end
   end
 
-  def list(wallet_id) do
-    case Backend.list_transactions(wallet_id) do
+  def list(wallet_id, options \\ []) do
+    default = [
+      start: nil,
+      end: nil,
+      order: :descending,
+      min_withdrawal: nil
+    ]
+
+    opts = Enum.into(Keyword.merge(default, options), %{})
+
+    case Backend.list_transactions(
+           wallet_id,
+           opts.start,
+           opts.end,
+           opts.order,
+           opts.min_withdrawal
+         ) do
       {:ok, transactions} -> {:ok, Enum.map(transactions, fn t -> Util.keys_to_atom(t) end)}
       {:error, message} -> {:error, message}
     end
