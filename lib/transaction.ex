@@ -19,7 +19,7 @@ defmodule Cardano.Transaction do
   def list(wallet_id, options \\ []) do
     default = [
       start: nil,
-      end: nil,
+      stop: nil,
       order: :descending,
       min_withdrawal: nil
     ]
@@ -29,7 +29,7 @@ defmodule Cardano.Transaction do
     case Backend.list_transactions(
            wallet_id,
            opts.start,
-           opts.end,
+           opts.stop,
            opts.order,
            opts.min_withdrawal
          ) do

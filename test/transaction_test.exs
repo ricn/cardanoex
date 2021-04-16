@@ -288,5 +288,15 @@ defmodule Cardano.TransactionTest do
 
       assert Enum.reverse(transactions_asc) == transactions_desc
     end
+
+    test "list transactions from a specific date", %{wallet: wallet} do
+      {:ok, transactions} = Transaction.list(wallet.id, start: "2021-04-12T00:00:00Z", stop: "2021-04-12T23:59:59Z")
+      assert length(transactions) == 2
+    end
+
+    test "list transactions with min withdrawal of 1", %{wallet: wallet} do
+      {:ok, transactions} = Transaction.list(wallet.id, min_withdrawal: 1)
+      assert length(transactions) == 0 #TODO:
+    end
   end
 end
