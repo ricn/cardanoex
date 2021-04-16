@@ -82,6 +82,12 @@ defmodule Cardano.Backend do
     end
   end
 
+  def get_transaction(wallet_id, transaction_id)do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions/#{transaction_id}") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   def list_addresses(wallet_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/addresses") do
       {:ok, result} -> response(result)

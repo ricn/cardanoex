@@ -299,4 +299,18 @@ defmodule Cardano.TransactionTest do
       assert length(transactions) == 0 #TODO:
     end
   end
+
+  describe "get transaction" do
+    test "get transaction successfully", %{wallet: wallet} do
+      transaction_id = "1c71514d379a13c87e830c4e1d569e551abc4eddebee42ddf86d348712c99d35"
+      {:ok, transaction} = Transaction.get(wallet.id, transaction_id)
+      assert transaction_id == transaction.id
+    end
+
+    test "try get transaction that does not exists", %{wallet: wallet} do
+      transaction_id = "2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24"
+      {:error, message} = Transaction.get(wallet.id, transaction_id)
+      assert "I couldn't find a transaction with the given id: 2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24" == message
+    end
+  end
 end

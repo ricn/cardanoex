@@ -37,4 +37,11 @@ defmodule Cardano.Transaction do
       {:error, message} -> {:error, message}
     end
   end
+
+  def get(wallet_id, transaction_id) do
+    case Backend.get_transaction(wallet_id, transaction_id) do
+      {:ok, transaction} -> {:ok, Util.keys_to_atom(transaction)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end
