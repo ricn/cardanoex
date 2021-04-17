@@ -27,3 +27,8 @@ In `config/config.exs`, add url to the cardano-wallet
 config :cardanoex,
   wallet_base_url: "http://localhost:8090/v2"
 ```
+
+## Donate
+
+If you like to support the idea with a donation, the address is:
+`addr1qyfe0we0tkdu9qn8ztufplz0lmktgpx9zxnj54cd7y359wsyhwvjrl2zkf5cy72yv6p47f2gs5zglyplfggh6e5n4p0sdvvrng`
