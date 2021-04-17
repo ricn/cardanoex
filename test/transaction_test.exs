@@ -1,7 +1,7 @@
-defmodule Cardano.TransactionTest do
+defmodule Cardanoex.TransactionTest do
   use ExUnit.Case
-  doctest Cardano.Transaction
-  alias Cardano.Transaction
+  doctest Cardanoex.Transaction
+  alias Cardanoex.Transaction
   alias TestHelpers
 
   setup_all do

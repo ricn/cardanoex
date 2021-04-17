@@ -1,5 +1,5 @@
-defmodule Cardano.Address do
-  alias Cardano.Backend
+defmodule Cardanoex.Address do
+  alias Cardanoex.Backend
 
   def list(wallet_id) do
     Backend.list_addresses(wallet_id)

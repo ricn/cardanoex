@@ -1,6 +1,6 @@
-defmodule Cardano.Wallet do
-  alias Cardano.Backend
-  alias Cardano.Util
+defmodule Cardanoex.Wallet do
+  alias Cardanoex.Backend
+  alias Cardanoex.Util
 
   def create_wallet(options \\ []) do
     default = [

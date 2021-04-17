@@ -1,6 +1,6 @@
-defmodule Cardano.Transaction do
-  alias Cardano.Backend
-  alias Cardano.Util
+defmodule Cardanoex.Transaction do
+  alias Cardanoex.Backend
+  alias Cardanoex.Util
 
   def estimate_fee(wallet_id, transaction) do
     case Backend.estimate_transaction_fee(wallet_id, transaction) do

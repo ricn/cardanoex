@@ -1,7 +1,7 @@
-defmodule Cardano.WalletTest do
+defmodule Cardanoex.WalletTest do
   use ExUnit.Case
-  doctest Cardano.Wallet
-  alias Cardano.Wallet
+  doctest Cardanoex.Wallet
+  alias Cardanoex.Wallet
 
   def wallet_attrs do
     [

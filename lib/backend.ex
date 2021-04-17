@@ -1,4 +1,4 @@
-defmodule Cardano.Backend do
+defmodule Cardanoex.Backend do
   def create_wallet(name, mnemonic_sentence, passphrase, mnemonic_second_factor, address_pool_gap) do
     data = %{
       name: name,
@@ -111,7 +111,7 @@ defmodule Cardano.Backend do
   end
 
   def client() do
-    base_url = Application.get_env(:cardano, :wallet_base_url, "http://localhost:8090/v2")
+    base_url = Application.get_env(:cardanoex, :wallet_base_url, "http://localhost:8090/v2")
 
     middleware = [
       {Tesla.Middleware.BaseUrl, base_url},

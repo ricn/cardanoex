@@ -1,4 +1,4 @@
-defmodule Cardano.Util do
+defmodule Cardanoex.Util do
   def keys_to_atom(map) do
     Map.new(
       map,

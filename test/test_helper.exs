@@ -1,18 +1,18 @@
 ExUnit.start()
 
 ExUnit.after_suite(fn _ ->
-  {:ok, all_wallets} = Cardano.Wallet.list()
+  {:ok, all_wallets} = Cardanoex.Wallet.list()
 
   Enum.each(all_wallets, fn w ->
     if w.id != "5c70f4f4970cadb7d5ec927e634be355df964b52" do
-      Cardano.Wallet.delete(w.id)
+      Cardanoex.Wallet.delete(w.id)
     end
   end)
 end)
 
 defmodule TestHelpers do
   @wallet_id "5c70f4f4970cadb7d5ec927e634be355df964b52"
-  alias Cardano.Wallet
+  alias Cardanoex.Wallet
   require Logger
 
   def setup_wallet_with_funds do
