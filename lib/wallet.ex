@@ -2,6 +2,31 @@ defmodule Cardanoex.Wallet do
   alias Cardanoex.Backend
   alias Cardanoex.Util
 
+  @moduledoc """
+  The wallet module lets you work with Cardano wallets.
+
+  Wallets are identified by unique ID which is deterministically derived from the seed (mnemonic phrase),
+  so each time you delete and create a wallet again, it receives the same ID.
+  """
+
+  @doc """
+  Create and restore a wallet from a mnemonic sentence.
+
+  Returns a map that looks like this:
+  ``
+
+  ## Options
+    * `name` - A human readable name for the wallet
+    * `mnemonic_sentence` - A list of bip-0039 mnemonic words. 15-24 words.
+    * `passphrase` - A master passphrase to lock and protect the wallet for sensitive operation (e.g. sending funds)
+    * `mnemonic_second_factor` - An optional passphrase used to encrypt the mnemonic sentence. A list of bip-0039 mnemonic words. 9-12 words.
+    * `address_pool_gap` - Number of consecutive unused addresses allowed. Default is 20.
+
+      IMPORTANT DISCLAIMER: Using values other than 20 automatically makes your wallet invalid with regards to BIP-44 address discovery.
+      It means that you will not be able to fully restore your wallet in a different software which is strictly following BIP-44.
+
+      Beside, using large gaps is not recommended as it may induce important performance degradations. Use at your own risks.
+  """
   def create_wallet(options \\ []) do
     default = [
       name: nil,
