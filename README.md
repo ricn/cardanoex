@@ -10,8 +10,7 @@ This library is the implementation of [the idea](https://cardano.ideascale.com/a
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cardanoex` to your list of dependencies in `mix.exs`:
+Add `cardanoex` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -21,6 +20,10 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/cardanoex](https://hexdocs.pm/cardanoex).
+## Configuration
+In `config/config.exs`, add url to the cardano-wallet
+
+```elixir
+config :cardanoex,
+  wallet_base_url: "http://localhost:8090/v2"
+```
