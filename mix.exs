@@ -7,7 +7,10 @@ defmodule Cardanoex.MixProject do
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      docs: docs(),
+      package: package()
     ]
   end
 
@@ -25,6 +28,28 @@ defmodule Cardanoex.MixProject do
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.16.0"},
       {:jason, ">= 1.0.0"}
+    ]
+  end
+
+  defp docs do
+    [extras: ["README.md"], main: "readme"]
+  end
+
+  defp description do
+    """
+    Elixir client for the Cardano wallet API
+    """
+  end
+
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Richard Nyström"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/ricn/cardanoex",
+        "Docs" => "http://hexdocs.pm/cardanoex"
+      }
     ]
   end
 end
