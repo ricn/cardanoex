@@ -27,7 +27,8 @@ defmodule Cardanoex.MixProject do
       {:mnemonic, "~> 0.2.5"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.16.0"},
-      {:jason, ">= 1.0.0"}
+      {:jason, ">= 1.0.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
