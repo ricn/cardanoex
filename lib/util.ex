@@ -1,4 +1,5 @@
 defmodule Cardanoex.Util do
+  @moduledoc false
   def keys_to_atom(map) do
     Map.new(
       map,
