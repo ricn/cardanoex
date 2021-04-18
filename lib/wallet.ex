@@ -12,9 +12,6 @@ defmodule Cardanoex.Wallet do
   @doc """
   Create and restore a wallet from a mnemonic sentence.
 
-  Returns a map that looks like this:
-  ``
-
   ## Options
     * `name` - A human readable name for the wallet
     * `mnemonic_sentence` - A list of bip-0039 mnemonic words. 15-24 words.
@@ -26,6 +23,7 @@ defmodule Cardanoex.Wallet do
       It means that you will not be able to fully restore your wallet in a different software which is strictly following BIP-44.
 
       Beside, using large gaps is not recommended as it may induce important performance degradations. Use at your own risks.
+
   """
   def create_wallet(options \\ []) do
     default = [
@@ -53,13 +51,22 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  def fetch(id) do
-    case Backend.fetch_wallet(id) do
+  @doc """
+  Fetch a wallet by wallet id
+
+  ## Options
+    * `wallet_id` - hex based string. 40 characters
+  """
+  def fetch(wallet_id) do
+    case Backend.fetch_wallet(wallet_id) do
       {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
       {:error, message} -> {:error, message}
     end
   end
 
+  @doc """
+  Return a list of known wallets, ordered from oldest to newest.
+  """
   def list() do
     case Backend.list_wallets() do
       {:ok, wallets} -> {:ok, Enum.map(wallets, fn w -> Util.keys_to_atom(w) end)}
@@ -67,27 +74,54 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  def delete(id) do
-    case Backend.delete_wallet(id) do
+  @doc """
+  Delete wallet by wallet id
+
+  ## Options
+    * `wallet_id` - hex based string. 40 characters
+  """
+  def delete(wallet_id) do
+    case Backend.delete_wallet(wallet_id) do
       {:ok, _} -> {:ok, :no_content}
       {:error, message} -> {:error, message}
     end
   end
 
-  def fetch_utxo_stats(id) do
-    case Backend.fetch_wallet_utxo_stats(id) do
+  @doc """
+  Return the UTxOs distribution across the whole wallet, in the form of a histogram.
+
+  ## Options
+    * `wallet_id` - hex based string. 40 characters
+  """
+  def fetch_utxo_stats(wallet_id) do
+    case Backend.fetch_wallet_utxo_stats(wallet_id) do
       {:ok, utxo_stats} -> {:ok, Util.keys_to_atom(utxo_stats)}
       {:error, message} -> {:error, message}
     end
   end
 
-  def update(id, name) do
-    case Backend.update_wallet_metadata(id, name) do
+  @doc """
+  Update the name of a wallet
+
+  ## Options
+    * `wallet_id` - hex based string. 40 characters
+    * `new_name` - the new name for the wallet
+  """
+  def update(wallet_id, new_name) do
+    case Backend.update_wallet_metadata(wallet_id, new_name) do
       {:ok, wallet} -> {:ok, Util.keys_to_atom(wallet)}
       {:error, message} -> {:error, message}
     end
   end
 
+  @doc """
+  Update passphrase for a wallet
+
+  ## Options
+    * `wallet_id` - hex based string. 40 characters
+    * `old_passphrase` - the old passphrase
+    * `new_passphrase` - the new passphrase
+  """
   def update_passphrase(id, old_passphrase, new_passphrase) do
     case Backend.update_wallet_passphrase(id, old_passphrase, new_passphrase) do
       {:ok, _} -> {:ok, :no_content}
