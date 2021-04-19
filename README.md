@@ -49,7 +49,7 @@ payments = %{
   payments: [
           %{
             address:
-              "addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f",
+              "addr_test1qqt6c697uderxaccgn...m64dsuzfj8f",
             amount: %{quantity: 1_000_000, unit: "lovelace"}
            }
   ]
