@@ -33,10 +33,10 @@ config :cardanoex,
 ### Create a wallet
 ```elixir
 name = "Wallet #1"
-mnemonic_sentence = String.split(Mnemonic.generate(), " ")
-passphrase = "Super_Secret3.14!"
+mnemonic = String.split(Mnemonic.generate(), " ")
+pass = "Super_Secret3.14!"
     
-{:ok, wallet} = Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic_sentence, passphrase: passphrase)
+{:ok, wallet} = Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic, passphrase: pass)
 ```
 ### List all transactions
 
