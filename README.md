@@ -28,6 +28,21 @@ config :cardanoex,
   wallet_base_url: "http://localhost:8090/v2"
 ```
 
+## Example usage
+
+### Create a wallet
+```elixir
+name = "Wallet #1"
+mnemonic_sentence = String.split(Mnemonic.generate(), " ")
+passphrase = "Super_Secret3.14!"
+    
+{:ok, wallet} = Wallet.create_wallet(name: name, mnemonic_sentence: mnemonic_sentence, passphrase: passphrase)
+```
+### List all transactions
+
+### Send a transaction
+
+
 ## Donate
 
 If you like to support the idea with a donation, the address is:

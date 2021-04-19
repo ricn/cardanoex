@@ -122,8 +122,8 @@ defmodule Cardanoex.Wallet do
     * `old_passphrase` - the old passphrase
     * `new_passphrase` - the new passphrase
   """
-  def update_passphrase(id, old_passphrase, new_passphrase) do
-    case Backend.update_wallet_passphrase(id, old_passphrase, new_passphrase) do
+  def update_passphrase(wallet_id, old_passphrase, new_passphrase) do
+    case Backend.update_wallet_passphrase(wallet_id, old_passphrase, new_passphrase) do
       {:ok, _} -> {:ok, :no_content}
       {:error, message} -> {:error, message}
     end
