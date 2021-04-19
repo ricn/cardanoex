@@ -24,7 +24,7 @@ defmodule Cardanoex.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:mnemonic, "~> 0.2.5"},
+      {:mnemonic, "0.3.0"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.16.0"},
       {:jason, ">= 1.0.0"},

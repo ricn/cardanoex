@@ -16,4 +16,6 @@ defmodule Cardanoex.Util do
       end
     )
   end
+
+  def generate_mnemonic, do: String.split(Mnemonic.generate(), " ")
 end
