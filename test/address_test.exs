@@ -3,11 +3,12 @@ defmodule Cardanoex.AddressTest do
   doctest Cardanoex.Address
   alias Cardanoex.Address
   alias Cardanoex.Wallet
+  alias Cardanoex.Util
 
   def wallet_attrs do
     [
       name: "wallet #1",
-      mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+      mnemonic_sentence: Util.generate_mnemonic(),
       passphrase: "Super_Sekret3.14!"
     ]
   end

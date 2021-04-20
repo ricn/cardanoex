@@ -2,11 +2,12 @@ defmodule Cardanoex.WalletTest do
   use ExUnit.Case
   doctest Cardanoex.Wallet
   alias Cardanoex.Wallet
+  alias Cardanoex.Util
 
   def wallet_attrs do
     [
       name: "wallet #1",
-      mnemonic_sentence: String.split(Mnemonic.generate(), " "),
+      mnemonic_sentence: Util.generate_mnemonic(),
       passphrase: "Super_Sekret3.14!"
     ]
   end
@@ -22,7 +23,7 @@ defmodule Cardanoex.WalletTest do
         Keyword.put(
           wallet_attrs(),
           :mnemonic_second_factor,
-          String.split(Mnemonic.generate(), " ")
+          Util.generate_mnemonic()
         )
 
       {:ok, wallet} = Wallet.create_wallet(attrs)

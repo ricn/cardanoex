@@ -76,14 +76,12 @@ defmodule Cardanoex.Backend do
         v != nil
       end)
 
-    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions",
-           query: query
-         ) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions", query: query) do
       {:ok, result} -> response(result)
     end
   end
 
-  def get_transaction(wallet_id, transaction_id)do
+  def get_transaction(wallet_id, transaction_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/transactions/#{transaction_id}") do
       {:ok, result} -> response(result)
     end

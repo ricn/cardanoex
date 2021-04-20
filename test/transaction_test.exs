@@ -290,13 +290,16 @@ defmodule Cardanoex.TransactionTest do
     end
 
     test "list transactions from a specific date", %{wallet: wallet} do
-      {:ok, transactions} = Transaction.list(wallet.id, start: "2021-04-12T00:00:00Z", stop: "2021-04-12T23:59:59Z")
+      {:ok, transactions} =
+        Transaction.list(wallet.id, start: "2021-04-12T00:00:00Z", stop: "2021-04-12T23:59:59Z")
+
       assert length(transactions) == 2
     end
 
     test "list transactions with min withdrawal of 1", %{wallet: wallet} do
       {:ok, transactions} = Transaction.list(wallet.id, min_withdrawal: 1)
-      assert length(transactions) == 0 #TODO:
+      # TODO:
+      assert length(transactions) == 0
     end
   end
 
@@ -310,7 +313,9 @@ defmodule Cardanoex.TransactionTest do
     test "try get transaction that does not exists", %{wallet: wallet} do
       transaction_id = "2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24"
       {:error, message} = Transaction.get(wallet.id, transaction_id)
-      assert "I couldn't find a transaction with the given id: 2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24" == message
+
+      assert "I couldn't find a transaction with the given id: 2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24" ==
+               message
     end
   end
 end
