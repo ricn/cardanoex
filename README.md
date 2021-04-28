@@ -1,5 +1,7 @@
 # Cardanoex
 
+[![Hex.pm](https://img.shields.io/hexpm/v/cardanoex.svg)](https://hex.pm/packages/cardanoex)
+
 The library is still in early development. Consider it experimental and the API might change in the future.
 
 This library is the implementation of [the idea](https://cardano.ideascale.com/a/dtd/Elixir-library/350635-48088) submitted to Catalyst project.
