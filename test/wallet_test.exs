@@ -24,7 +24,8 @@ defmodule Cardanoex.WalletTest do
       attrs =
         Keyword.put(
           wallet_attrs(),
-          :mnemonic_second_factor, mnemonic_second_factor
+          :mnemonic_second_factor,
+          mnemonic_second_factor
         )
 
       {:ok, wallet} = Wallet.create_wallet(attrs)
@@ -37,11 +38,14 @@ defmodule Cardanoex.WalletTest do
       attrs =
         Keyword.put(
           wallet_attrs(),
-          :mnemonic_second_factor, mnemonic_second_factor
+          :mnemonic_second_factor,
+          mnemonic_second_factor
         )
 
       {:error, message} = Wallet.create_wallet(attrs)
-      assert message == "Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected."
+
+      assert message ==
+               "Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected."
     end
 
     test "create wallet successfully with custom address_pool_gap" do

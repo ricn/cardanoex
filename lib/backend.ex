@@ -8,8 +8,10 @@ defmodule Cardanoex.Backend do
       address_pool_gap: address_pool_gap
     }
 
-    data = if mnemonic_second_factor != nil,
-      do: Map.put_new(data, :mnemonic_second_factor, mnemonic_second_factor), else: data
+    data =
+      if mnemonic_second_factor != nil,
+        do: Map.put_new(data, :mnemonic_second_factor, mnemonic_second_factor),
+        else: data
 
     case Tesla.post(client(), "/wallets", data) do
       {:ok, result} -> response(result)
