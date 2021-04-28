@@ -1,6 +1,7 @@
 # Cardanoex
 
 [![Hex.pm](https://img.shields.io/hexpm/v/cardanoex.svg)](https://hex.pm/packages/cardanoex)
+[![Inline docs](http://inch-ci.org/github/ricn/cardanoex.svg?branch=master)](http://inch-ci.org/github/ricn/cardanoex)
 
 The library is still in early development. Consider it experimental and the API might change in the future.
 
