@@ -26,7 +26,9 @@ defmodule Cardanoex.NetworkTest do
     test "fetch parameters successfully" do
       use_cassette "fetch_parameters_successfully" do
         {:ok, clock} = Network.parameters()
-        assert clock.genesis_block_hash == "96fceff972c2c06bd3bb5243c39215333be6d56aaf4823073dca31afe5038471"
+
+        assert clock.genesis_block_hash ==
+                 "96fceff972c2c06bd3bb5243c39215333be6d56aaf4823073dca31afe5038471"
       end
     end
   end

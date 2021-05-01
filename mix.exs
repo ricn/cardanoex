@@ -12,7 +12,10 @@ defmodule Cardanoex.MixProject do
       docs: docs(),
       package: package(),
       preferred_cli_env: [
-        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+        vcr: :test,
+        "vcr.delete": :test,
+        "vcr.check": :test,
+        "vcr.show": :test
       ]
     ]
   end

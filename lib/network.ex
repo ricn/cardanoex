@@ -22,5 +22,4 @@ defmodule Cardanoex.Network do
       {:error, message} -> {:error, message}
     end
   end
-
 end

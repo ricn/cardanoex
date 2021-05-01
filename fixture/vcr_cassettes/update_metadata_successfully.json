@@ -1,0 +1,54 @@
+[
+  {
+    "request": {
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"patient\",\"slight\",\"breeze\",\"pet\",\"census\",\"comfort\",\"capable\",\"space\",\"anger\",\"bean\",\"chunk\",\"cash\",\"tongue\",\"glimpse\",\"spirit\",\"phrase\",\"wife\",\"gaze\",\"umbrella\",\"lunar\",\"anchor\",\"copper\",\"measure\",\"drum\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-01T23:00:35.233695103Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"e111d9389338bf8f72aa1bbd9cb4d145e1c8bdc8\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sat, 01 May 2021 23:00:35 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"name\":\"My wallet\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "put",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/e111d9389338bf8f72aa1bbd9cb4d145e1c8bdc8"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-01T23:00:35.233695103Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"My wallet\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"e111d9389338bf8f72aa1bbd9cb4d145e1c8bdc8\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sat, 01 May 2021 23:00:35 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

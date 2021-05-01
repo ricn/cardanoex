@@ -1,0 +1,28 @@
+[
+  {
+    "request": {
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"output\",\"vault\",\"rescue\",\"onion\",\"civil\",\"path\",\"joke\",\"regular\",\"mandate\",\"situate\",\"gauge\",\"share\",\"lounge\",\"cause\",\"fog\",\"torch\",\"jewel\",\"hamster\",\"muscle\",\"dwarf\",\"point\",\"skate\",\"what\",\"enter\"],\"mnemonic_sentence\":[\"pair\",\"glue\",\"scare\",\"same\",\"display\",\"body\",\"hero\",\"cement\",\"penalty\",\"same\",\"husband\",\"off\",\"loyal\",\"guitar\",\"slight\",\"domain\",\"shuffle\",\"swarm\",\"spatial\",\"rude\",\"curious\",\"sugar\",\"absurd\",\"census\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"bad_request\",\"message\":\"Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected.\"}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sat, 01 May 2021 23:00:23 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]
