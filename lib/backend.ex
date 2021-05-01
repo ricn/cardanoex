@@ -137,6 +137,8 @@ defmodule Cardanoex.Backend do
       Tesla.Middleware.JSON
     ]
 
-    Tesla.client(middleware)
+    adapter = {Tesla.Adapter.Hackney, [recv_timeout: 30_000]}
+
+    Tesla.client(middleware, adapter)
   end
 end

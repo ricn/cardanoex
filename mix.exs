@@ -10,7 +10,10 @@ defmodule Cardanoex.MixProject do
       deps: deps(),
       description: description(),
       docs: docs(),
-      package: package()
+      package: package(),
+      preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+      ]
     ]
   end
 
@@ -30,6 +33,7 @@ defmodule Cardanoex.MixProject do
       {:jason, ">= 1.0.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:inch_ex, "~> 2.0", only: :docs},
+      {:exvcr, "~> 0.12.3", only: :test}
     ]
   end
 

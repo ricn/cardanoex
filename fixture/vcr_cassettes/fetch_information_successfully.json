@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/network/information"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"network_tip\":{\"time\":\"2021-05-01T21:41:48Z\",\"epoch_number\":129,\"absolute_slot_number\":25536092,\"slot_number\":177692},\"node_era\":\"mary\",\"node_tip\":{\"height\":{\"quantity\":2544493,\"unit\":\"block\"},\"time\":\"2021-05-01T21:41:01Z\",\"epoch_number\":129,\"absolute_slot_number\":25536045,\"slot_number\":177645},\"sync_progress\":{\"status\":\"ready\"},\"next_epoch\":{\"epoch_start_time\":\"2021-05-04T20:20:16Z\",\"epoch_number\":130}}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sat, 01 May 2021 21:41:47 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
