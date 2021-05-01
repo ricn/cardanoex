@@ -101,6 +101,24 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def network_information() do
+    case Tesla.get(client(), "/network/information") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def network_clock() do
+    case Tesla.get(client(), "/network/clock") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def network_parameters() do
+    case Tesla.get(client(), "/network/parameters") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       # This is probably due to a bug in the Cardano wallet: https://github.com/input-output-hk/cardano-wallet/issues/2596
