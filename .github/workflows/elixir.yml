@@ -31,3 +31,5 @@ jobs:
       run: mix test
     - name: Report documentation coverage 
       run: MIX_ENV=docs mix deps.get && MIX_ENV=docs mix inch.report  
+    - name: "Report test coverage"
+      run: mix compile && mix coveralls.travis  
