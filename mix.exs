@@ -8,6 +8,7 @@ defmodule Cardanoex.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      test_coverage: [tool: ExCoveralls],
       description: description(),
       docs: docs(),
       package: package(),
@@ -16,8 +17,7 @@ defmodule Cardanoex.MixProject do
         "vcr.delete": :test,
         "vcr.check": :test,
         "vcr.show": :test
-      ],
-      test_coverage: [tool: ExCoveralls]]
+      ]
     ]
   end
 
