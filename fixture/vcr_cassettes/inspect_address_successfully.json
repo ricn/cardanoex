@@ -1,0 +1,76 @@
+[
+  {
+    "request": {
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"legend\",\"bargain\",\"violin\",\"brick\",\"avoid\",\"fashion\",\"tag\",\"wing\",\"crawl\",\"nose\",\"text\",\"party\",\"join\",\"angry\",\"maid\",\"supreme\",\"impulse\",\"owner\",\"sock\",\"dress\",\"lonely\",\"employ\",\"lottery\",\"wrist\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-02T20:14:02.714591925Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"758f6d6a74b6c34e4608800ca66a045b9815557b\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:02 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/758f6d6a74b6c34e4608800ca66a045b9815557b/addresses"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"state\":\"unused\",\"id\":\"addr_test1qpv7kz6kvldynr5d54c45z2wavt3rg52hqlawhqntekw9zy8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s23arsp\"},{\"state\":\"unused\",\"id\":\"addr_test1qzhskwg0z8dnphnhq93ljr7la9l0cwmdaqqz88msfwc68h58zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s24tn09\"},{\"state\":\"unused\",\"id\":\"addr_test1qqany3kgpv4359q0whj0l6ghsr89z74zdyftrh269etkdx58zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sunval2\"},{\"state\":\"unused\",\"id\":\"addr_test1qp9vp8pgg2dn5n80l90xcjgjawywnhjah4un0c45wtvahvu8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s4wu2w3\"},{\"state\":\"unused\",\"id\":\"addr_test1qzv68wekgvzdmpuhwmr7ryt8zak56lrzvypw4n78c7fh2758zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s0cfr6y\"},{\"state\":\"unused\",\"id\":\"addr_test1qprqzh970d9grn2mlty4ykfuaacsy8f4ug7ut7s64k934pv8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s0ewjrn\"},{\"state\":\"unused\",\"id\":\"addr_test1qzqa9mpm26mjsj3gqg4kt2wxfq2zpgxde77fflhn2ytlwly8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sla8e8q\"},{\"state\":\"unused\",\"id\":\"addr_test1qqnp9tn2kv5hl9mrkxdpjj89pvkdglm2yc7gyq5x96lzpgv8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s3s9j9f\"},{\"state\":\"unused\",\"id\":\"addr_test1qq3c29f2dh05syulklguynxrau5rx89qu6gqp0c2c5l6uvv8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sjzswrf\"},{\"state\":\"unused\",\"id\":\"addr_test1qpgj9cvhakrfh40cv54e6wne6whjcw8wkw5ag6s5lndcqau8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24ssvn9jq\"},{\"state\":\"unused\",\"id\":\"addr_test1qzkmc2pc6rhucs05ew5yzf82huhathsm473whxklptgx4ry8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s7p2uux\"},{\"state\":\"unused\",\"id\":\"addr_test1qpw9aj3tetacvhe49zc5qtsgl2ruq38c69zgzf7k7gy34y58zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sxr0hx9\"},{\"state\":\"unused\",\"id\":\"addr_test1qzsrpwmtj2hd9qxmaxfdymancag6xy780f4nwg8z2lwpdqy8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24stwp5u9\"},{\"state\":\"unused\",\"id\":\"addr_test1qrdl2v2f6yl4gs99e60uhu50dkmcssh0h2srwczkhy5x2hv8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24smf3dnf\"},{\"state\":\"unused\",\"id\":\"addr_test1qqq8u5xgsyfsgasvp39pfgcdfqqh4ns820wrxutlk0k2ewu8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s8pcw3s\"},{\"state\":\"unused\",\"id\":\"addr_test1qqan8gjhg6ntxcnh5e04yls42k7x6w5uxdh56uw85acyv758zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s3sgefs\"},{\"state\":\"unused\",\"id\":\"addr_test1qzzej9r4avd0qdy38d7n068zljkee529028zn0ekhzy6k758zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sppdlgm\"},{\"state\":\"unused\",\"id\":\"addr_test1qqx8zjjhkurguxz5nvly9s9yy5utpqac4c7u7s6rhujtz9y8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24sc4q8ef\"},{\"state\":\"unused\",\"id\":\"addr_test1qqrc90hnqyktqtrrara55m33hf3rznt6t7zq2c75uep9tsu8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s9mncqn\"},{\"state\":\"unused\",\"id\":\"addr_test1qzx5exx9qt2msejl92rg7g0ejpwa9egs82adrt2us4e9ex58zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s9es9wj\"}]",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:02 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/addresses/addr_test1qpv7kz6kvldynr5d54c45z2wavt3rg52hqlawhqntekw9zy8zlcl47esmrdrpnx3t6anmr9wsvelsfah8pxmj9hcw24s23arsp"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"stake_reference\":\"by value\",\"stake_key_hash\":\"8717f1fafb30d8da30ccd15ebb3d8cae8333f827b7384db916f872ab\",\"address_style\":\"Shelley\",\"spending_key_hash\":\"59eb0b5667da498e8da5715a094eeb1711a28ab83fd75c135e6ce288\",\"network_tag\":0}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:02 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/511b0ff88918401c119d3c6ccd4156e53444b5f0/addresses"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"no_such_wallet\",\"message\":\"I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0\"}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:03 GMT",
+        "Server": "Warp/3.3.5"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

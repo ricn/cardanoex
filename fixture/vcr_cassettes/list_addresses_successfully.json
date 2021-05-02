@@ -1,0 +1,52 @@
+[
+  {
+    "request": {
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"desk\",\"shuffle\",\"divide\",\"include\",\"steak\",\"height\",\"alcohol\",\"rescue\",\"solid\",\"orient\",\"axis\",\"debris\",\"true\",\"pig\",\"later\",\"quote\",\"park\",\"parent\",\"space\",\"identify\",\"cash\",\"buddy\",\"basic\",\"curve\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-02T20:14:02.012523309Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"173917c30d619ade7028be7c10b06d5fed387c65\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:02 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/173917c30d619ade7028be7c10b06d5fed387c65/addresses"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"state\":\"unused\",\"id\":\"addr_test1qqatt3rf3law07x7vg44m7zk34s0pfgzr8758w9meyclz2f3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs5evssf\"},{\"state\":\"unused\",\"id\":\"addr_test1qpjuelk5zhx7ltxutq7w40n3vmj6k2tnp3mlwp8mplhyr8e3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsp68zmh\"},{\"state\":\"unused\",\"id\":\"addr_test1qqpx69v9lcn0qayaqvtd6phgu8xrx274tgjt3h4vfu6ay2f3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsd3ya0c\"},{\"state\":\"unused\",\"id\":\"addr_test1qrc9fnewhg6v2ghufu6gwd7p29aq6gklznwqkgc79aa76y33str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsuzfxkx\"},{\"state\":\"unused\",\"id\":\"addr_test1qpp9l2q5m4ezztqmgejxv6vt8anr5sjkthfslw0g3z5urxp3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsy7xr7a\"},{\"state\":\"unused\",\"id\":\"addr_test1qzj6ft98yh2a73p3qhdz40cludtz5z0wfhu5q2dqwm5grue3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs8nvzpq\"},{\"state\":\"unused\",\"id\":\"addr_test1qp4c70y39knupqnwjhyxd62rx6qug92a86vgv0sg626qj5p3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsmwh4zd\"},{\"state\":\"unused\",\"id\":\"addr_test1qq7j25w52ldhsuy9d2w0tl7sptczechjs48a2qxaag9en6p3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsu3hc0q\"},{\"state\":\"unused\",\"id\":\"addr_test1qzssaz3v8najejdt2vsz89xnk77k0yza2axllfnjm7mmhpp3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs9vc0ex\"},{\"state\":\"unused\",\"id\":\"addr_test1qpy26chwlvrd4jrrqvk8jsmu7e4j3tsrgs2u50ctnpat99e3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsawm8p4\"},{\"state\":\"unused\",\"id\":\"addr_test1qrvtn0jv7vygm96xl9n2t6dnmtlwrda5v2zpg5uk7ezstge3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsdlrdql\"},{\"state\":\"unused\",\"id\":\"addr_test1qpk7st8lhxpkfy5424xwj3fvwrjxt09trtrl5njjl2ekwge3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs2n728c\"},{\"state\":\"unused\",\"id\":\"addr_test1qrxkzde8sdu7j9pkl4unrp88ucyrj69jz0l0csak5m0s9zp3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs6yhzxd\"},{\"state\":\"unused\",\"id\":\"addr_test1qqv2u2an443jdgcwenl22n2dy5hn7cj2zx09he4alkuhuh33str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs286unw\"},{\"state\":\"unused\",\"id\":\"addr_test1qqgthd4k68c4lq8fp4q8uuxuwdaghxlhm9k6ygqmqzc2y833str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsuelyfn\"},{\"state\":\"unused\",\"id\":\"addr_test1qzez6f467xxs5lp49kqtey6lt6tagzxjyu4ypqq47fl5tvf3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsf0ptay\"},{\"state\":\"unused\",\"id\":\"addr_test1qrqht6nd3d0qxvsg2tfhwr6h2jl0v64urzqcz36jqh0gasp3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxs70tm4m\"},{\"state\":\"unused\",\"id\":\"addr_test1qz4q2jl4e93t3249h8xyr6wrvz0zd2r7e9l9ys5f4lsh9d33str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsv2unl8\"},{\"state\":\"unused\",\"id\":\"addr_test1qr9s7jtylxnmsdze3fr4ch4kucp2v0u5ytpz6pp0dct0zqf3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsj7hf3q\"},{\"state\":\"unused\",\"id\":\"addr_test1qzczjfgm7rs3ne56xcujh5huzzw0ve2x3zz3sszf8vxs8gf3str7mzu438kxrzv2dhv7dwn0f4tk4ez9l0jzkdf4exxsugwseg\"}]",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 20:14:02 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
