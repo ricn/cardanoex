@@ -1,0 +1,28 @@
+[
+  {
+    "request": {
+      "body": "{\"metadata\":{\"0\":{\"string\":\"cardano\"},\"1\":{\"int\":14}},\"passphrase\":\"Super_Sekret3.14!\",\"payments\":[{\"address\":\"addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f\",\"amount\":{\"quantity\":1407406,\"unit\":\"lovelace\"}}]}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52/transactions"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"status\":\"pending\",\"withdrawals\":[],\"amount\":{\"quantity\":1578231,\"unit\":\"lovelace\"},\"inputs\":[{\"amount\":{\"quantity\":964919968,\"unit\":\"lovelace\"},\"address\":\"addr_test1qqnxvvygkzlfeddjwprczk7k0pduc857p94mr8dhn5a9p94psnaecl02hhx2mr6f3lz3xyfen9hvypqpxf34a5gzvx3q6rxpv9\",\"id\":\"2aee63f457d51979cb2a9b6577fb2afca4a9f691d06d851b836a5cd2c91633fa\",\"assets\":[],\"index\":1}],\"direction\":\"outgoing\",\"fee\":{\"quantity\":170825,\"unit\":\"lovelace\"},\"outputs\":[{\"amount\":{\"quantity\":1407406,\"unit\":\"lovelace\"},\"address\":\"addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f\",\"assets\":[]},{\"amount\":{\"quantity\":963341737,\"unit\":\"lovelace\"},\"address\":\"addr_test1qpdhg0qk345zg7a2nuhtmck8l8s3cqxnf99vquqsa98trqdpsnaecl02hhx2mr6f3lz3xyfen9hvypqpxf34a5gzvx3qdrt6hu\",\"assets\":[]}],\"expires_at\":{\"time\":\"2021-05-02T21:48:44Z\",\"epoch_number\":129,\"absolute_slot_number\":25622908,\"slot_number\":264508},\"pending_since\":{\"height\":{\"quantity\":2547194,\"unit\":\"block\"},\"time\":\"2021-05-02T19:48:34Z\",\"epoch_number\":129,\"absolute_slot_number\":25615698,\"slot_number\":257298},\"metadata\":{\"0\":{\"string\":\"cardano\"},\"1\":{\"int\":14}},\"id\":\"da2c73e0a54620ff847cc46c21ecdd0641fa02b7a970e8bb56b944ccc593c3fb\",\"deposit\":{\"quantity\":0,\"unit\":\"lovelace\"},\"mint\":[]}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 19:48:44 GMT",
+        "Server": "Warp/3.3.5",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 202,
+      "type": "ok"
+    }
+  }
+]

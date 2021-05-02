@@ -1,0 +1,27 @@
+[
+  {
+    "request": {
+      "body": "{\"passphrase\":\"Bad\",\"payments\":[{\"address\":\"addr_test1qqt6c697uderxaccgnerhhmp6yf2kctj0zpxkmjxvuger3sgcw2hdh4qrckpls3aq7kq8ma8pwsyzct0e6ndeadm64dsuzfj8f\",\"amount\":{\"quantity\":1000000,\"unit\":\"lovelace\"}}]}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://localhost:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52/transactions"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"wrong_encryption_passphrase\",\"message\":\"The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52\"}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Sun, 02 May 2021 19:48:44 GMT",
+        "Server": "Warp/3.3.5"
+      },
+      "status_code": 403,
+      "type": "ok"
+    }
+  }
+]
