@@ -16,22 +16,25 @@ defmodule TestHelpers do
   @wallet_id "5c70f4f4970cadb7d5ec927e634be355df964b52"
   alias Cardanoex.Wallet
   require Logger
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   def setup_wallet_with_funds do
-    {:ok, wallet} =
-      case Wallet.fetch(@wallet_id) do
-        {:ok, wallet} ->
-          {:ok, wallet}
+    use_cassette "setup_wallet_with_funds" do
+      {:ok, wallet} =
+        case Wallet.fetch(@wallet_id) do
+          {:ok, wallet} ->
+            {:ok, wallet}
 
-        {:error, _} ->
-          Wallet.create_wallet(wallet_attrs())
-      end
+          {:error, _} ->
+            Wallet.create_wallet(wallet_attrs())
+        end
 
-    wait_for_synced_wallet(wallet)
+      wait_for_synced_wallet(wallet)
+    end
   end
 
   defp wait_for_synced_wallet(wallet) do
-    status = wallet.state.status
+    status = if !System.get_env("GITHUB_ACTIONS"), do: wallet.state.status, else: "ready"
 
     if status == "syncing" do
       Logger.info(wallet.state)
