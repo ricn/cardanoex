@@ -16,7 +16,8 @@ defmodule Cardanoex.MixProject do
         "vcr.delete": :test,
         "vcr.check": :test,
         "vcr.show": :test
-      ]
+      ],
+      test_coverage: [tool: ExCoveralls]]
     ]
   end
 
@@ -36,7 +37,8 @@ defmodule Cardanoex.MixProject do
       {:jason, ">= 1.0.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:inch_ex, "~> 2.0", only: :docs},
-      {:exvcr, "~> 0.12.3", only: :test}
+      {:exvcr, "~> 0.12.3", only: :test},
+      {:excoveralls, "~> 0.14.0"}
     ]
   end
 

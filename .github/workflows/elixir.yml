@@ -32,4 +32,6 @@ jobs:
     - name: Report documentation coverage 
       run: MIX_ENV=docs mix deps.get && MIX_ENV=docs mix inch.report  
     - name: "Report test coverage"
-      run: mix compile && mix coveralls.travis  
+      run: mix coveralls.github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
