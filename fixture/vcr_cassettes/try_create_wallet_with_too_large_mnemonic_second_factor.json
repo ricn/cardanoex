@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"output\",\"vault\",\"rescue\",\"onion\",\"civil\",\"path\",\"joke\",\"regular\",\"mandate\",\"situate\",\"gauge\",\"share\",\"lounge\",\"cause\",\"fog\",\"torch\",\"jewel\",\"hamster\",\"muscle\",\"dwarf\",\"point\",\"skate\",\"what\",\"enter\"],\"mnemonic_sentence\":[\"pair\",\"glue\",\"scare\",\"same\",\"display\",\"body\",\"hero\",\"cement\",\"penalty\",\"same\",\"husband\",\"off\",\"loyal\",\"guitar\",\"slight\",\"domain\",\"shuffle\",\"swarm\",\"spatial\",\"rude\",\"curious\",\"sugar\",\"absurd\",\"census\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"either\",\"twenty\",\"age\",\"copy\",\"rapid\",\"issue\",\"swim\",\"odor\",\"thought\",\"parent\",\"wrist\",\"uncle\",\"youth\",\"cluster\",\"subject\",\"report\",\"pass\",\"deny\",\"truly\",\"work\",\"firm\",\"phrase\",\"tragic\",\"invest\"],\"mnemonic_sentence\":[\"insane\",\"ring\",\"repair\",\"twist\",\"arrive\",\"pond\",\"clump\",\"about\",\"cream\",\"acoustic\",\"girl\",\"hidden\",\"domain\",\"wisdom\",\"bullet\",\"fringe\",\"short\",\"actual\",\"proof\",\"ivory\",\"accident\",\"gossip\",\"business\",\"under\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -17,7 +17,7 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 01 May 2021 23:00:23 GMT",
+        "Date": "Sun, 02 May 2021 20:49:22 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },

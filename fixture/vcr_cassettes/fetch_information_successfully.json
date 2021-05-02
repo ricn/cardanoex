@@ -12,10 +12,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"network_tip\":{\"time\":\"2021-05-02T20:02:59Z\",\"epoch_number\":129,\"absolute_slot_number\":25616563,\"slot_number\":258163},\"node_era\":\"mary\",\"node_tip\":{\"height\":{\"quantity\":2547217,\"unit\":\"block\"},\"time\":\"2021-05-02T20:01:48Z\",\"epoch_number\":129,\"absolute_slot_number\":25616492,\"slot_number\":258092},\"sync_progress\":{\"status\":\"ready\"},\"next_epoch\":{\"epoch_start_time\":\"2021-05-04T20:20:16Z\",\"epoch_number\":130}}",
+      "body": "{\"network_tip\":{\"time\":\"2021-05-02T20:50:03Z\",\"epoch_number\":129,\"absolute_slot_number\":25619387,\"slot_number\":260987},\"node_era\":\"mary\",\"node_tip\":{\"height\":{\"quantity\":2547305,\"unit\":\"block\"},\"time\":\"2021-05-02T20:49:41Z\",\"epoch_number\":129,\"absolute_slot_number\":25619365,\"slot_number\":260965},\"sync_progress\":{\"status\":\"ready\"},\"next_epoch\":{\"epoch_start_time\":\"2021-05-04T20:20:16Z\",\"epoch_number\":130}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 20:02:58 GMT",
+        "Date": "Sun, 02 May 2021 20:50:02 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },

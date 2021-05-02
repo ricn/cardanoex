@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"race\",\"teach\",\"void\",\"brick\",\"because\",\"coil\",\"raven\",\"rifle\",\"strategy\",\"risk\",\"hill\",\"perfect\"],\"mnemonic_sentence\":[\"original\",\"veteran\",\"exclude\",\"spatial\",\"shove\",\"text\",\"confirm\",\"way\",\"must\",\"trade\",\"enlist\",\"large\",\"noise\",\"drift\",\"squirrel\",\"ensure\",\"brick\",\"shift\",\"spice\",\"cruel\",\"main\",\"list\",\"unveil\",\"now\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"eagle\",\"emerge\",\"bomb\",\"eyebrow\",\"top\",\"lyrics\",\"travel\",\"run\",\"vital\",\"fun\",\"uphold\",\"scout\"],\"mnemonic_sentence\":[\"garden\",\"shallow\",\"father\",\"bargain\",\"give\",\"market\",\"only\",\"owner\",\"anxiety\",\"paddle\",\"crane\",\"toss\",\"ten\",\"hold\",\"nominee\",\"confirm\",\"return\",\"useful\",\"talk\",\"street\",\"pull\",\"ticket\",\"orchard\",\"into\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,10 +14,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-01T23:00:23.86533455Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"8791241b338d8199773bca5a2daa271e2003e3ed\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-05-02T20:49:35.662060204Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"6e750a6c61e17fc4d52126bc42acb3eb4798fc47\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 01 May 2021 23:00:23 GMT",
+        "Date": "Sun, 02 May 2021 20:49:34 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },

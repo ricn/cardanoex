@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"cherry\",\"sad\",\"view\",\"clip\",\"enroll\",\"wood\",\"smart\",\"start\",\"valley\",\"true\",\"abstract\",\"ball\",\"message\",\"shrimp\",\"blind\",\"hip\",\"sword\",\"kangaroo\",\"slide\",\"employ\",\"begin\",\"bag\",\"junior\",\"rug\"],\"name\":\"wallet #1\",\"passphrase\":\"weak\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"swarm\",\"fitness\",\"perfect\",\"cannon\",\"enhance\",\"blouse\",\"crime\",\"require\",\"call\",\"daughter\",\"immune\",\"mad\",\"green\",\"gun\",\"error\",\"happy\",\"mother\",\"budget\",\"tobacco\",\"obvious\",\"clean\",\"bitter\",\"double\",\"can\"],\"name\":\"wallet #1\",\"passphrase\":\"weak\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -17,7 +17,7 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.passphrase: passphrase is too short: expected at least 10 characters\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 01 May 2021 23:00:30 GMT",
+        "Date": "Sun, 02 May 2021 20:49:23 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },

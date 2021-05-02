@@ -17,7 +17,7 @@
       "body": "{\"code\":\"utxo_too_small\",\"message\":\"Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.000000     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] \"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 19:35:36 GMT",
+        "Date": "Sun, 02 May 2021 20:49:56 GMT",
         "Server": "Warp/3.3.5"
       },
       "status_code": 403,

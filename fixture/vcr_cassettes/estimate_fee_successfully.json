@@ -17,7 +17,7 @@
       "body": "{\"estimated_min\":{\"quantity\":168801,\"unit\":\"lovelace\"},\"deposit\":{\"quantity\":0,\"unit\":\"lovelace\"},\"minimum_coins\":[{\"quantity\":1000000,\"unit\":\"lovelace\"}],\"estimated_max\":{\"quantity\":168801,\"unit\":\"lovelace\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 19:35:36 GMT",
+        "Date": "Sun, 02 May 2021 20:49:42 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },

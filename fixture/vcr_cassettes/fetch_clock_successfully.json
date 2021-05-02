@@ -12,10 +12,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"status\":\"available\",\"offset\":{\"quantity\":-324388,\"unit\":\"microsecond\"}}",
+      "body": "{\"status\":\"available\",\"offset\":{\"quantity\":98637,\"unit\":\"microsecond\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 20:02:58 GMT",
+        "Date": "Sun, 02 May 2021 20:50:02 GMT",
         "Server": "Warp/3.3.5",
         "Content-Type": "application/json;charset=utf-8"
       },
