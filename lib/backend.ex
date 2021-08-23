@@ -121,10 +121,7 @@ defmodule Cardanoex.Backend do
 
   defp response(result) do
     cond do
-      # This is probably due to a bug in the Cardano wallet: https://github.com/input-output-hk/cardano-wallet/issues/2596
-      result.status == 404 -> {:error, Jason.decode!(result.body)["message"]}
-      result.status == 403 -> {:error, Jason.decode!(result.body)["message"]}
-      result.status == 400 -> {:error, result.body["message"]}
+      Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}
       true -> {:ok, result.body}
     end
   end
