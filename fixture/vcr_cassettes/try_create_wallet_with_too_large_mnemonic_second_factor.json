@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"either\",\"twenty\",\"age\",\"copy\",\"rapid\",\"issue\",\"swim\",\"odor\",\"thought\",\"parent\",\"wrist\",\"uncle\",\"youth\",\"cluster\",\"subject\",\"report\",\"pass\",\"deny\",\"truly\",\"work\",\"firm\",\"phrase\",\"tragic\",\"invest\"],\"mnemonic_sentence\":[\"insane\",\"ring\",\"repair\",\"twist\",\"arrive\",\"pond\",\"clump\",\"about\",\"cream\",\"acoustic\",\"girl\",\"hidden\",\"domain\",\"wisdom\",\"bullet\",\"fringe\",\"short\",\"actual\",\"proof\",\"ivory\",\"accident\",\"gossip\",\"business\",\"under\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"salmon\",\"sound\",\"eight\",\"hub\",\"void\",\"citizen\",\"end\",\"diary\",\"cloud\",\"champion\",\"slam\",\"outside\",\"soul\",\"prevent\",\"aerobic\",\"ability\",\"oblige\",\"west\",\"clever\",\"merry\",\"humor\",\"dream\",\"venue\",\"resemble\"],\"mnemonic_sentence\":[\"door\",\"thunder\",\"bottom\",\"river\",\"mutual\",\"turtle\",\"coyote\",\"noise\",\"favorite\",\"proud\",\"patch\",\"fruit\",\"quiz\",\"near\",\"purity\",\"hedgehog\",\"nurse\",\"exit\",\"industry\",\"flavor\",\"raise\",\"credit\",\"census\",\"match\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,15 +10,15 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://localhost:8090/v2/wallets"
+      "url": "http://206.81.24.0:8090/v2/wallets"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 20:49:22 GMT",
-        "Server": "Warp/3.3.5",
+        "Date": "Mon, 23 Aug 2021 19:36:49 GMT",
+        "Server": "Warp/3.3.14",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 400,

@@ -10,15 +10,16 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://localhost:8090/v2/wallets/511b0ff88918401c119d3c6ccd4156e53444b5f0"
+      "url": "http://206.81.24.0:8090/v2/wallets/511b0ff88918401c119d3c6ccd4156e53444b5f0"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"no_such_wallet\",\"message\":\"I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 20:49:26 GMT",
-        "Server": "Warp/3.3.5"
+        "Date": "Mon, 23 Aug 2021 19:36:54 GMT",
+        "Server": "Warp/3.3.14",
+        "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 404,
       "type": "ok"

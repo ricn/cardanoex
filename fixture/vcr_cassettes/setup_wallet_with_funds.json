@@ -8,15 +8,15 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://localhost:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52"
+      "url": "http://206.81.24.0:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52"
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-04-09T22:47:59.217757027Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"ready\"},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":2840718950,\"unit\":\"lovelace\"},\"available\":{\"quantity\":2840718950,\"unit\":\"lovelace\"}},\"name\":\"wallet_with_funds\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"delegating\",\"target\":\"pool1dkpac0xr6rpsv2qznjupkyg5s64epddam0ydmh55vaghx3ctygt\"}},\"id\":\"5c70f4f4970cadb7d5ec927e634be355df964b52\",\"tip\":{\"height\":{\"quantity\":2547304,\"unit\":\"block\"},\"time\":\"2021-05-02T20:49:17Z\",\"epoch_number\":129,\"absolute_slot_number\":25619341,\"slot_number\":260941},\"assets\":{\"total\":[{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}],\"available\":[{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-08-23T19:00:54.021319765Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"ready\"},\"balance\":{\"reward\":{\"quantity\":7022041,\"unit\":\"lovelace\"},\"total\":{\"quantity\":2842073286,\"unit\":\"lovelace\"},\"available\":{\"quantity\":2835051245,\"unit\":\"lovelace\"}},\"name\":\"wallet_with_funds\",\"delegation\":{\"next\":[{\"status\":\"delegating\",\"changes_at\":{\"epoch_start_time\":\"2021-09-01T20:20:16Z\",\"epoch_number\":154},\"target\":\"pool19tquecgw6thlmzl3yeh72mzhrg95m4zckwe82l4tk83gkxl8e95\"}],\"active\":{\"status\":\"delegating\",\"target\":\"pool1dkpac0xr6rpsv2qznjupkyg5s64epddam0ydmh55vaghx3ctygt\"}},\"id\":\"5c70f4f4970cadb7d5ec927e634be355df964b52\",\"tip\":{\"height\":{\"quantity\":2854464,\"unit\":\"block\"},\"time\":\"2021-08-23T19:37:00Z\",\"epoch_number\":152,\"absolute_slot_number\":35378204,\"slot_number\":83804},\"assets\":{\"total\":[{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}],\"available\":[{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sun, 02 May 2021 20:49:36 GMT",
-        "Server": "Warp/3.3.5",
+        "Date": "Mon, 23 Aug 2021 19:37:07 GMT",
+        "Server": "Warp/3.3.14",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 200,
