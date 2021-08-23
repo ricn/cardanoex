@@ -127,7 +127,8 @@ defmodule Cardanoex.Backend do
   end
 
   def client() do
-    base_url = Application.get_env(:cardanoex, :wallet_base_url, "http://localhost:8090/v2")
+    base_url_from_env = System.get_env("CARDANOEX_WALLET_BASE_URL", "http://localhost:8090/v2")
+    base_url = Application.get_env(:cardanoex, :wallet_base_url, base_url_from_env)
 
     middleware = [
       {Tesla.Middleware.BaseUrl, base_url},
