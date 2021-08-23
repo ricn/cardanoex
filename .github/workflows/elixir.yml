@@ -33,7 +33,10 @@ jobs:
         CARDANOEX_WALLET_BASE_URL: ${{ secrets.CARDANOEX_WALLET_BASE_URL }}
     - name: Report documentation coverage 
       run: MIX_ENV=docs mix deps.get && MIX_ENV=docs mix inch.report  
+      env:
+        CARDANOEX_WALLET_BASE_URL: ${{ secrets.CARDANOEX_WALLET_BASE_URL }}
     - name: "Report test coverage"
       run: MIX_ENV=test mix coveralls.github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CARDANOEX_WALLET_BASE_URL: ${{ secrets.CARDANOEX_WALLET_BASE_URL }}
