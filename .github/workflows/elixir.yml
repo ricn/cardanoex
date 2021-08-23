@@ -35,3 +35,4 @@ jobs:
       run: MIX_ENV=test mix coveralls.github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CARDANOEX_WALLET_BASE_URL: ${{ secrets.CARDANOEX_WALLET_BASE_URL }}
