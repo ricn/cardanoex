@@ -145,6 +145,12 @@ defmodule Cardanoex.Transaction do
     end
   end
 
+  @doc """
+  Get transaction by id.
+
+  ## Options
+    * `transaction_id` - Transaction ID
+  """
   def get(wallet_id, transaction_id) do
     case Backend.get_transaction(wallet_id, transaction_id) do
       {:ok, transaction} -> {:ok, Util.keys_to_atom(transaction)}
