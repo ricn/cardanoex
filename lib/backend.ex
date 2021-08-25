@@ -119,6 +119,18 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def list_assets(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/assets") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def get_asset(wallet_id, policy_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/assets/#{policy_id}") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}
