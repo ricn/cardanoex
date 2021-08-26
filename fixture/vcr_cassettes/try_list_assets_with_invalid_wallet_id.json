@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://206.81.24.0:8090/v2/wallets/abc-123/assets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"bad_request\",\"message\":\"wallet id should be a hex-encoded string of 40 characters\"}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Wed, 25 Aug 2021 20:54:19 GMT",
+        "Server": "Warp/3.3.14",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]
