@@ -131,6 +131,12 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def mint_burn_asset(wallet_id, mint_burn_info) do
+    case Tesla.post(client(), "/wallets/#{wallet_id}/assets", mint_burn_info) do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}

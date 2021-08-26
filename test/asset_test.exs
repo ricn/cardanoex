@@ -45,4 +45,33 @@ defmodule Cardanoex.AssetTest do
 
     ## TODO: Add more here after we have minted some cool coins with names n shit
   end
+
+  describe "mint / burn asset" do
+    test "mint 1000 beer coins successfully", %{wallet: wallet} do
+      use_cassette "mint_beer_coins_successfully" do
+        mint = %{
+          mint_burn: [
+            %{
+              monetary_policy_index: 0, # TODO: What's this?
+              asset_name: "Beer coin",
+              operation: %{
+                mint: %{
+                  receiving_address: "addr_test1qq0306kjm9zx60zmgs9ch4anupfwscju3xxs0gp2csze8f4psnaecl02hhx2mr6f3lz3xyfen9hvypqpxf34a5gzvx3q2fgp4a",
+                  amount: %{
+                    quantity: 1000,
+                    unit: "beers"
+                  }
+                }
+              }
+            }
+          ],
+          passphrase: "Super_Sekret3.14!"
+        }
+
+        {:ok, transaction} = Asset.mint_burn(wallet.id, mint)
+        IO.inspect transaction
+        assert transaction != nil
+      end
+    end
+  end
 end

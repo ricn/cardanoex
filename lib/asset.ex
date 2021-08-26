@@ -15,4 +15,11 @@ defmodule Cardanoex.Asset do
       {:error, message} -> {:error, message}
     end
   end
+
+  def mint_burn(wallet_id, mint_burn_info) do
+    case Backend.mint_burn_asset(wallet_id, mint_burn_info) do
+      {:ok, transaction} -> {:ok, Util.keys_to_atom(transaction)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

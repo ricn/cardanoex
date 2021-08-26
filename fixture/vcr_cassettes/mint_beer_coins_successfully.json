@@ -1,0 +1,28 @@
+[
+  {
+    "request": {
+      "body": "{\"mint_burn\":[{\"asset_name\":\"Beer coin\",\"monetary_policy_index\":0,\"operation\":{\"mint\":{\"amount\":{\"quantity\":1000,\"unit\":\"beers\"},\"receiving_address\":\"addr_test1qq0306kjm9zx60zmgs9ch4anupfwscju3xxs0gp2csze8f4psnaecl02hhx2mr6f3lz3xyfen9hvypqpxf34a5gzvx3q2fgp4a\"}}}],\"passphrase\":\"Super_Sekret3.14!\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://206.81.24.0:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52/assets"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"method_not_allowed\",\"message\":\"You've reached a known endpoint but I don't know how to handle the HTTP method specified. Please double-check both the endpoint and the method: one of them is likely to be incorrect (for example: POST instead of PUT, or GET instead of POST...).\"}",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Date": "Thu, 26 Aug 2021 20:50:54 GMT",
+        "Server": "Warp/3.3.14",
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      "status_code": 405,
+      "type": "ok"
+    }
+  }
+]
