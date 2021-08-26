@@ -42,7 +42,5 @@ defmodule Cardanoex.AssetTest do
         assert asset.fingerprint == "asset1cvmyrfrc7lpht2hcjwr9lulzyyjv27uxh3kcz0"
       end
     end
-
-    ## TODO: Add more here after we have minted some cool coins with names n shit
   end
 end
