@@ -1,0 +1,20 @@
+defmodule Cardanoex.StakePoolTest do
+  use ExUnit.Case
+  doctest Cardanoex.StakePool
+  alias Cardanoex.StakePool
+
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
+
+  setup_all do
+    [wallet: TestHelpers.setup_wallet_with_funds()]
+  end
+
+  describe "list stake pools" do
+    test "list stake pools successfully" do
+      use_cassette "list_stake_pools_successfully" do
+        {:ok, stake_pools} = StakePool.list(10_000 * 1_000_000)
+        assert length(stake_pools) == 845
+      end
+    end
+  end
+end
