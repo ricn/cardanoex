@@ -1,6 +1,7 @@
 defmodule Cardanoex.StakePool do
   alias Cardanoex.Backend
   alias Cardanoex.Util
+
   @moduledoc """
   The stake pool module let's you manage stake pools.
   """

@@ -210,8 +210,9 @@ defmodule Cardanoex.WalletTest do
     test "try fetch with correctly formatted id but non existent" do
       use_cassette "try_fetch_with_correctly_formatted_id_but_non_existent" do
         {:error, message} = Wallet.fetch_utxo_stats("511b0ff88918401c119d3c6ccd4156e53444b5f0")
+
         assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
-                message
+                 message
       end
     end
   end
@@ -246,7 +247,7 @@ defmodule Cardanoex.WalletTest do
         {:error, message} = Wallet.update("511b0ff88918401c119d3c6ccd4156e53444b5f0", "Wallet")
 
         assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
-                message
+                 message
       end
     end
   end
@@ -256,11 +257,14 @@ defmodule Cardanoex.WalletTest do
       use_cassette "update_passphrase_successfully" do
         passphrase = "Super_Sekret3.14!"
         {:ok, created_wallet} = Wallet.create_wallet(wallet_attrs())
-        {:ok, _} = Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
+
+        {:ok, _} =
+          Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
+
         {:ok, updated_wallet} = Wallet.fetch(created_wallet.id)
 
         assert created_wallet.passphrase.last_updated_at !=
-                updated_wallet.passphrase.last_updated_at
+                 updated_wallet.passphrase.last_updated_at
       end
     end
 
@@ -271,9 +275,8 @@ defmodule Cardanoex.WalletTest do
         {:error, message} =
           Wallet.update_passphrase(wallet.id, "Wrong Old Password!123", "New_Super_Sekret_6.28!")
 
-        assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: #{
-                wallet.id
-              }" == message
+        assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: #{wallet.id}" ==
+                 message
       end
     end
 
@@ -284,7 +287,7 @@ defmodule Cardanoex.WalletTest do
         {:error, message} = Wallet.update_passphrase(wallet.id, passphrase, "weak")
 
         assert "Error in $['new_passphrase']: passphrase is too short: expected at least 10 characters" ==
-                message
+                 message
       end
     end
 
@@ -307,7 +310,7 @@ defmodule Cardanoex.WalletTest do
           )
 
         assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
-                message
+                 message
       end
     end
   end
