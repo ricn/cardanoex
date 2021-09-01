@@ -20,4 +20,11 @@ defmodule Cardanoex.StakePool do
       {:error, message} -> {:error, message}
     end
   end
+
+  def list_stake_keys(wallet_id) do
+    case Backend.list_stake_keys(wallet_id) do
+      {:ok, stake_keys} -> {:ok, Util.keys_to_atom(stake_keys)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

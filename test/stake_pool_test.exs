@@ -17,4 +17,13 @@ defmodule Cardanoex.StakePoolTest do
       end
     end
   end
+
+  describe "list stake keys" do
+    test "list stake keys successfully", %{wallet: wallet} do
+      use_cassette "list_stake_keys_successfully" do
+        {:ok, stake_keys} = StakePool.list_stake_keys(wallet.id)
+        assert stake_keys != nil
+      end
+    end
+  end
 end
