@@ -26,4 +26,13 @@ defmodule Cardanoex.StakePoolTest do
       end
     end
   end
+
+  describe "view maintenance actions" do
+    test "view maintenance actions successfully" do
+      use_cassette "view_maintenance_actions_successfully" do
+        {:ok, maintenance_actions} = StakePool.view_maintenance_actions()
+        assert maintenance_actions != nil
+      end
+    end
+  end
 end

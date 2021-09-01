@@ -33,4 +33,14 @@ defmodule Cardanoex.StakePool do
       {:error, message} -> {:error, message}
     end
   end
+
+  @doc """
+  Returns the current status of the stake pools maintenance actions.
+  """
+  def view_maintenance_actions do
+    case Backend.view_maintenance_actions() do
+      {:ok, actions} -> {:ok, Util.keys_to_atom(actions)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end
