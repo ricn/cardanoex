@@ -21,6 +21,12 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @doc """
+  List stake-keys relevant to the wallet, and how much ada is associated with each.
+
+  ### Options
+    * `wallet_id` - hex based string. 40 characters
+  """
   def list_stake_keys(wallet_id) do
     case Backend.list_stake_keys(wallet_id) do
       {:ok, stake_keys} -> {:ok, Util.keys_to_atom(stake_keys)}
