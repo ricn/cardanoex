@@ -45,6 +45,18 @@ defmodule Cardanoex.StakePool do
   end
 
   @doc """
+  Performs maintenance actions on stake pools, such as triggering metadata garbage collection.
+
+  Actions may not be instantaneous.
+  """
+  def trigger_maintenance_action(action) do
+    case Backend.trigger_maintenance_action(action) do
+      {:ok, _result} -> :ok
+      {:error, message} -> {:error, message}
+    end
+  end
+
+  @doc """
   Estimate fee for joining or leaving a stake pool. Note that it is an estimation because a delegation induces a transaction for which coins have to be selected randomly within the wallet. Because of this randomness, fees can only be estimated.
 
   ### Options

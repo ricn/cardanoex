@@ -149,6 +149,12 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def trigger_maintenance_action(action) do
+    case Tesla.post(client(), "/stake-pools/maintenance-actions", %{maintenance_action: action}) do
+      {:ok, result} -> response(result)
+    end
+  end
+
   def delegation_fees(wallet_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
       {:ok, result} -> response(result)

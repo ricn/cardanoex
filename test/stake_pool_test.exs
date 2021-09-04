@@ -36,6 +36,14 @@ defmodule Cardanoex.StakePoolTest do
     end
   end
 
+  describe "trigger maintenance actions" do
+    test "trigger maintenance actions successfully" do
+      use_cassette "trigger_maintenance_actions" do
+        :ok = StakePool.trigger_maintenance_action("gc_stake_pools")
+      end
+    end
+  end
+
   describe "estimate fee for joining/leaving stake pool" do
     test "estimate fee for joining/leaving successfully", %{wallet: wallet} do
       use_cassette "estimate_fee_for_joining_stake_pool_successfully" do
