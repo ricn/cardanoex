@@ -149,6 +149,12 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def delegation_fees(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}

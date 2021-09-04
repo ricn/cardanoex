@@ -43,4 +43,17 @@ defmodule Cardanoex.StakePool do
       {:error, message} -> {:error, message}
     end
   end
+
+  @doc """
+  Estimate fee for joining or leaving a stake pool. Note that it is an estimation because a delegation induces a transaction for which coins have to be selected randomly within the wallet. Because of this randomness, fees can only be estimated.
+
+  ### Options
+    * `wallet_id` - hex based string. 40 characters
+  """
+  def estimate_fee(wallet_id) do
+    case Backend.delegation_fees(wallet_id) do
+      {:ok, estimated_fees} -> {:ok, Util.keys_to_atom(estimated_fees)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

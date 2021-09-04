@@ -35,4 +35,16 @@ defmodule Cardanoex.StakePoolTest do
       end
     end
   end
+
+  describe "estimate fee for joining/leaving stake pool" do
+    test "estimate fee for joining/leaving successfully", %{wallet: wallet} do
+      use_cassette "estimate_fee_for_joining_stake_pool_successfully" do
+        {:ok, estimated_fee} = StakePool.estimate_fee(wallet.id)
+        assert estimated_fee.estimated_min != nil
+        assert estimated_fee.estimated_max != nil
+        assert estimated_fee.minimum_coins != nil
+        assert estimated_fee.deposit != nil
+      end
+    end
+  end
 end
