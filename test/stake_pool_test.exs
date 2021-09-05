@@ -66,4 +66,14 @@ defmodule Cardanoex.StakePoolTest do
       end
     end
   end
+
+  describe "quit staking" do
+    test "quit staking", %{wallet: wallet} do
+      use_cassette "quit_staking" do
+        passphrase = "Super_Sekret3.14!"
+        {:error, message} = StakePool.quit(wallet.id, passphrase)
+        assert message == "It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 7022041 lovelace first."
+      end
+    end
+  end
 end

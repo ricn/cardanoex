@@ -80,4 +80,14 @@ defmodule Cardanoex.StakePool do
       {:error, message} -> {:error, message}
     end
   end
+
+  @doc """
+  Stop delegating completely. The wallet's stake will become inactive.
+  """
+  def quit(wallet_id, passphrase) do
+    case Backend.quit_staking(wallet_id, passphrase) do
+      {:ok, result} -> {:ok, Util.keys_to_atom(result)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

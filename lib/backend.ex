@@ -163,6 +163,14 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def quit_staking(wallet_id, passphrase) do
+    case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}", body: %{
+           passphrase: passphrase
+         }) do
+      {:ok, result} -> response(result)
+    end
+  end
+
   def delegation_fees(wallet_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
       {:ok, result} -> response(result)
