@@ -68,4 +68,16 @@ defmodule Cardanoex.StakePool do
       {:error, message} -> {:error, message}
     end
   end
+
+  @doc """
+  Delegate all (current and future) addresses from the given wallet to the given stake pool.
+
+  *Note:* Bech32-encoded stake pool identifiers can vary in length.
+  """
+  def join(wallet_id, stake_pool_id, passphrase) do
+    case Backend.join_stake_pool(wallet_id, stake_pool_id, passphrase) do
+      {:ok, result} -> {:ok, Util.keys_to_atom(result)}
+      {:error, message} -> {:error, message}
+    end
+  end
 end

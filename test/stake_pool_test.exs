@@ -55,4 +55,15 @@ defmodule Cardanoex.StakePoolTest do
       end
     end
   end
+
+  describe "join stake pool" do
+    test "join stake pool successfully", %{wallet: wallet} do
+      use_cassette "join_stake_pool_successfully" do
+        stake_pool_id = "pool1aqr0p4g9zmks8lvkdhe8qpff76jhy8ggl4pen3aa34ftwfegr8x"
+        passphrase = "Super_Sekret3.14!"
+        {:ok, result} = StakePool.join(wallet.id, stake_pool_id, passphrase)
+        assert result.id != nil
+      end
+    end
+  end
 end

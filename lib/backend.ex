@@ -155,6 +155,14 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def join_stake_pool(wallet_id, stake_pool_id, passphrase) do
+    case Tesla.put(client(), "/stake-pools/#{stake_pool_id}/wallets/#{wallet_id}", %{
+           passphrase: passphrase
+         }) do
+      {:ok, result} -> response(result)
+    end
+  end
+
   def delegation_fees(wallet_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
       {:ok, result} -> response(result)
