@@ -73,6 +73,11 @@ defmodule Cardanoex.StakePool do
   Delegate all (current and future) addresses from the given wallet to the given stake pool.
 
   *Note:* Bech32-encoded stake pool identifiers can vary in length.
+
+  ### Options
+    * `wallet_id` - hex based string. 40 characters
+    * `stake_pool_id` - hex|bech32 string
+    * `passphrase` - Wallet passphrase
   """
   def join(wallet_id, stake_pool_id, passphrase) do
     case Backend.join_stake_pool(wallet_id, stake_pool_id, passphrase) do
@@ -83,6 +88,10 @@ defmodule Cardanoex.StakePool do
 
   @doc """
   Stop delegating completely. The wallet's stake will become inactive.
+
+  ### Options
+    * `wallet_id` - hex based string. 40 characters
+    * `passphrase` - Wallet passphrase
   """
   def quit(wallet_id, passphrase) do
     case Backend.quit_staking(wallet_id, passphrase) do
