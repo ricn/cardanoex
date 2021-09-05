@@ -35,7 +35,7 @@ defmodule Cardanoex.AddressTest do
         {:error, message} = Address.list("511b0ff88918401c119d3c6ccd4156e53444b5f0")
 
         assert "I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0" ==
-                message
+                 message
       end
     end
   end

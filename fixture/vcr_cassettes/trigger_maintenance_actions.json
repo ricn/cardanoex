@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "{\"maintenance_action\":\"gc_stake_pools\"}",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "http://206.81.24.0:8090/v2/stake-pools/maintenance-actions"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Date": "Sat, 04 Sep 2021 22:47:20 GMT",
+        "Server": "Warp/3.3.14"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  }
+]

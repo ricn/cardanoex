@@ -107,7 +107,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.407406     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " ==
-                message
+                 message
       end
     end
 
@@ -133,7 +133,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         assert "Error in $.payments[0].assets: parsing AddressAmount failed, Error while deserializing token map from JSON: Encountered zero-valued quantity for token '' within policy '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'." ==
-                message
+                 message
       end
     end
 
@@ -159,7 +159,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         assert "I can't process this payment as there are not enough funds available in the wallet. I am missing: coin: 0.000000 tokens:   - policy: 7a8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7     token:     quantity: 1 " ==
-                message
+                 message
       end
     end
 
@@ -200,7 +200,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" ==
-                message
+                 message
       end
     end
 
@@ -220,7 +220,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         assert "Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes." ==
-                message
+                 message
       end
     end
   end
@@ -260,7 +260,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.create(wallet.id, transaction)
 
         assert "The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52" ==
-                message
+                 message
       end
     end
 
@@ -300,7 +300,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.create(wallet.id, transaction)
 
         assert "Error in $.metadata: The JSON metadata top level must be a map (JSON object) with unsigned integer keys. Invalid key: 'cardano'" ==
-                message
+                 message
       end
     end
   end
@@ -354,7 +354,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.get(wallet.id, transaction_id)
 
         assert "I couldn't find a transaction with the given id: 2d82614d379a13c87e430c4e1d569e551abc4abbebee42ddf86d348712c88c24" ==
-                message
+                 message
       end
     end
   end

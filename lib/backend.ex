@@ -131,6 +131,52 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def list_stake_pools(stake) do
+    case Tesla.get(client(), "/stake-pools", query: [stake: stake]) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def list_stake_keys(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/stake-keys") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def view_maintenance_actions do
+    case Tesla.get(client(), "/stake-pools/maintenance-actions") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def trigger_maintenance_action(action) do
+    case Tesla.post(client(), "/stake-pools/maintenance-actions", %{maintenance_action: action}) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def join_stake_pool(wallet_id, stake_pool_id, passphrase) do
+    case Tesla.put(client(), "/stake-pools/#{stake_pool_id}/wallets/#{wallet_id}", %{
+           passphrase: passphrase
+         }) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def quit_staking(wallet_id, passphrase) do
+    case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}", body: %{
+           passphrase: passphrase
+         }) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def delegation_fees(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}

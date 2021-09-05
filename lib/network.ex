@@ -1,6 +1,7 @@
 defmodule Cardanoex.Network do
   alias Cardanoex.Backend
   alias Cardanoex.Util
+
   @moduledoc """
   The Network module helps you check various information and parameters in the network
   """

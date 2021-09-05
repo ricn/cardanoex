@@ -15,7 +15,7 @@ defmodule Cardanoex.Address do
     Backend.list_addresses(wallet_id)
   end
 
-  @doc"""
+  @doc """
   Give useful information about the structure of a given address.
 
   ## Options
