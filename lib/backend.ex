@@ -183,6 +183,12 @@ defmodule Cardanoex.Backend do
     end
   end
 
+  def get_public_key(wallet_id, role, index) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/keys/#{role}/#{index}") do
+      {:ok, result} -> response(result)
+    end
+  end
+
   defp response(result) do
     cond do
       Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}
