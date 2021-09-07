@@ -164,15 +164,42 @@ defmodule Cardanoex.Backend do
   end
 
   def quit_staking(wallet_id, passphrase) do
-    case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}", body: %{
-           passphrase: passphrase
-         }) do
+    case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}",
+           body: %{
+             passphrase: passphrase
+           }
+         ) do
       {:ok, result} -> response(result)
     end
   end
 
   def delegation_fees(wallet_id) do
     case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def get_account_public_key(wallet_id) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/keys") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def get_public_key(wallet_id, role, index) do
+    case Tesla.get(client(), "/wallets/#{wallet_id}/keys/#{role}/#{index}") do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  def create_account_public_key(wallet_id, passphrase, index, format, purpose \\ nil) do
+    data = %{
+      passphrase: passphrase,
+      format: format
+    }
+
+    data = if purpose != nil, do: Map.put_new(data, :purpose, purpose), else: data
+
+    case Tesla.post(client(), "/wallets/#{wallet_id}/keys/#{index}", data) do
       {:ok, result} -> response(result)
     end
   end
