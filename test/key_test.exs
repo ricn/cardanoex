@@ -27,4 +27,42 @@ defmodule Cardanoex.KeyTest do
       end
     end
   end
+
+  describe "create account public key" do
+    test "create account public key successfully", %{wallet: wallet} do
+      use_cassette "create_account_public_key_successfully" do
+        index = "2000H"
+        passphrase = "Super_Sekret3.14!"
+        format = "extended"
+        purpose = "2000H"
+
+        {:ok, public_key} =
+          Key.create_account_public_key(wallet.id,
+            passphrase: passphrase,
+            index: index,
+            format: format,
+            purpose: purpose
+          )
+
+        assert String.starts_with?(public_key, "acct_")
+      end
+    end
+
+    test "create account public key successfully without purspose", %{wallet: wallet} do
+      use_cassette "create_account_public_key_successfully_without_purpose" do
+        index = "2000H"
+        passphrase = "Super_Sekret3.14!"
+        format = "extended"
+
+        {:ok, public_key} =
+          Key.create_account_public_key(wallet.id,
+            passphrase: passphrase,
+            index: index,
+            format: format
+          )
+
+        assert String.starts_with?(public_key, "acct_")
+      end
+    end
+  end
 end
