@@ -1,6 +1,10 @@
 defmodule Cardanoex.Key do
   alias Cardanoex.Backend
 
+  @moduledoc """
+  The Key module helps you to work with public keys for a wallet.
+  """
+
   @doc """
   Retrieve the account public key of this wallet.
 
