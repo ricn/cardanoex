@@ -32,13 +32,13 @@ defmodule Cardanoex.MixProject do
   defp deps do
     [
       {:mnemonic, "0.3.0"},
-      {:tesla, "~> 1.4"},
-      {:hackney, "~> 1.16.0"},
-      {:jason, ">= 1.0.0"},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:inch_ex, "~> 2.0", only: :docs},
-      {:exvcr, "~> 0.12.3", only: :test},
-      {:excoveralls, "~> 0.14.0"}
+      {:tesla, "1.4.3"},
+      {:hackney, "1.17.4"},
+      {:jason, "1.2.2"},
+      {:ex_doc, "0.25.2", only: :dev, runtime: false},
+      {:inch_ex, "2.0.0", only: :docs},
+      {:exvcr, "0.13.2", only: :test},
+      {:excoveralls, "0.14.2"}
     ]
   end
 
