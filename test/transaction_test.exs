@@ -42,7 +42,7 @@ defmodule Cardanoex.TransactionTest do
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
         expected_message =
-          "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.000000     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] "
+          "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 0.999978     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] "
 
         assert expected_message == message
       end
@@ -106,7 +106,7 @@ defmodule Cardanoex.TransactionTest do
 
         {:error, message} = Transaction.estimate_fee(wallet.id, transaction)
 
-        assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.407406     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " ==
+        assert "Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.310316     TxOut:       address: 00f8227b...6e607d73       coin: 0.407406       tokens:         - policy: 6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7           tokens:             - token:               quantity: 1 " ==
                  message
       end
     end

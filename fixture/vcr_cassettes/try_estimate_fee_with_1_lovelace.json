@@ -14,11 +14,11 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"code\":\"utxo_too_small\",\"message\":\"Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 1.000000     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] \"}",
+      "body": "{\"code\":\"utxo_too_small\",\"message\":\"Some outputs have ada values that are too small. There's a minimum ada value specified by the protocol that each output must satisfy. I'll handle that minimum value myself when you do not explicitly specify an ada value for an output. Otherwise, you must specify enough ada. Here are the problematic outputs:   - Expected min coin value: 0.999978     TxOut:       address: 00f8227b...6e607d73       coin: 0.000001       tokens: [] \"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:11 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:05 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 403,

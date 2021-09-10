@@ -15,8 +15,8 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"wallet id should be a hex-encoded string of 40 characters\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Wed, 25 Aug 2021 20:54:19 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:33 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 400,

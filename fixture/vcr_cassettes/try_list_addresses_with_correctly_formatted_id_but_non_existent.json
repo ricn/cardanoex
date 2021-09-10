@@ -15,8 +15,8 @@
       "body": "{\"code\":\"no_such_wallet\",\"message\":\"I couldn't find a wallet with the given id: 511b0ff88918401c119d3c6ccd4156e53444b5f0\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:16 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:27 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 404,

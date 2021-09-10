@@ -12,11 +12,11 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"status\":\"available\",\"offset\":{\"quantity\":-2320,\"unit\":\"microsecond\"}}",
+      "body": "{\"status\":\"available\",\"offset\":{\"quantity\":-7998,\"unit\":\"microsecond\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:20 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:34 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 200,

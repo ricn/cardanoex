@@ -17,8 +17,8 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.metadata: Value out of range within the metadata item 0: {'string':'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'} Text string metadata value must consist of at most 64 UTF8 bytes, but it consists of 65 bytes.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:11 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:11 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 400,

@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":1000,\"mnemonic_sentence\":[\"ethics\",\"pizza\",\"what\",\"eye\",\"source\",\"bar\",\"year\",\"shoot\",\"sauce\",\"audit\",\"subway\",\"erode\",\"will\",\"mushroom\",\"dance\",\"trim\",\"essay\",\"shock\",\"scene\",\"much\",\"unknown\",\"car\",\"audit\",\"smoke\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":1000,\"mnemonic_sentence\":[\"wood\",\"image\",\"champion\",\"reveal\",\"people\",\"injury\",\"antenna\",\"fit\",\"debris\",\"vibrant\",\"sibling\",\"holiday\",\"upon\",\"thing\",\"armor\",\"medal\",\"fame\",\"essay\",\"adult\",\"lend\",\"egg\",\"leaf\",\"trim\",\"unfair\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,11 +14,11 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-08-23T19:36:59.913146475Z\"},\"address_pool_gap\":1000,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"9833cc07f76f72debe677e575a35fba03127b89c\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-09-09T22:22:00.344011385Z\"},\"address_pool_gap\":1000,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"92a520ee73f47baa873bafa9f89c84f13aa7ab9d\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:00 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:00 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 201,

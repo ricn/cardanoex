@@ -15,8 +15,8 @@
       "body": "{\"gc_stake_pools\":{\"status\":\"not_applicable\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Wed, 01 Sep 2021 21:45:40 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:25 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 200,

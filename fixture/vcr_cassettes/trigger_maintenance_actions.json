@@ -16,8 +16,8 @@
       "binary": false,
       "body": "",
       "headers": {
-        "Date": "Sat, 04 Sep 2021 22:47:20 GMT",
-        "Server": "Warp/3.3.14"
+        "Date": "Thu, 09 Sep 2021 22:22:18 GMT",
+        "Server": "Warp/3.3.17"
       },
       "status_code": 204,
       "type": "ok"

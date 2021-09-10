@@ -13,7 +13,7 @@ defmodule Cardanoex.StakePoolTest do
     test "list stake pools successfully" do
       use_cassette "list_stake_pools_successfully" do
         {:ok, stake_pools} = StakePool.list(10_000 * 1_000_000)
-        assert length(stake_pools) == 845
+        assert length(stake_pools) > 100
       end
     end
   end
@@ -59,7 +59,7 @@ defmodule Cardanoex.StakePoolTest do
   describe "join stake pool" do
     test "join stake pool successfully", %{wallet: wallet} do
       use_cassette "join_stake_pool_successfully" do
-        stake_pool_id = "pool1aqr0p4g9zmks8lvkdhe8qpff76jhy8ggl4pen3aa34ftwfegr8x"
+        stake_pool_id = "pool1xqh4kl5gzn4av7uf32lxas5k8tsfgvhy3hlnrg0fdp98q42jswr"
         passphrase = "Super_Sekret3.14!"
         {:ok, result} = StakePool.join(wallet.id, stake_pool_id, passphrase)
         assert result.id != nil
@@ -74,7 +74,7 @@ defmodule Cardanoex.StakePoolTest do
         {:error, message} = StakePool.quit(wallet.id, passphrase)
 
         assert message ==
-                 "It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 7022041 lovelace first."
+                 "It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 7109490 lovelace first."
       end
     end
   end

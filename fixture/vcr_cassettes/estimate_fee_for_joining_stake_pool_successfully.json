@@ -12,11 +12,11 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"estimated_min\":{\"quantity\":166293,\"unit\":\"lovelace\"},\"deposit\":{\"quantity\":0,\"unit\":\"lovelace\"},\"minimum_coins\":[],\"estimated_max\":{\"quantity\":166293,\"unit\":\"lovelace\"}}",
+      "body": "{\"estimated_min\":{\"quantity\":166513,\"unit\":\"lovelace\"},\"deposit\":{\"quantity\":0,\"unit\":\"lovelace\"},\"minimum_coins\":[],\"estimated_max\":{\"quantity\":166513,\"unit\":\"lovelace\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 04 Sep 2021 22:07:20 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:22:18 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 200,

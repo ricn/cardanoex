@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"endorse\",\"myself\",\"hundred\",\"ship\",\"tennis\",\"direct\",\"spin\",\"own\",\"team\",\"helmet\",\"chimney\",\"soap\",\"team\",\"symptom\",\"between\",\"judge\",\"afford\",\"memory\",\"engage\",\"faculty\",\"slim\",\"inch\",\"thank\",\"vessel\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"daughter\",\"sunny\",\"shiver\",\"gate\",\"clown\",\"stool\",\"possible\",\"pig\",\"tobacco\",\"join\",\"round\",\"step\",\"member\",\"purpose\",\"error\",\"pelican\",\"mention\",\"drill\",\"nurse\",\"butter\",\"divorce\",\"melt\",\"theme\",\"grocery\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,11 +14,11 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-08-23T19:37:03.15849407Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"38c547ad94db66733fe316ef768e4f5c88d0bb65\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-09-09T22:21:48.611431391Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"f641ceb09ad9de2fb586e740b2b22e9f5ca3b497\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:03 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:21:48 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 201,
@@ -36,15 +36,15 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/38c547ad94db66733fe316ef768e4f5c88d0bb65"
+      "url": "http://206.81.24.0:8090/v2/wallets/f641ceb09ad9de2fb586e740b2b22e9f5ca3b497"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.name: name is too short: expected at least 1 character\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:37:03 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:21:48 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 400,

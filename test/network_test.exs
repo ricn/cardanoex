@@ -8,7 +8,7 @@ defmodule Cardanoex.NetworkTest do
     test "fetch information successfully" do
       use_cassette "fetch_information_successfully" do
         {:ok, information} = Network.information()
-        assert information.node_era == "mary"
+        assert information.node_era == "alonzo"
       end
     end
   end

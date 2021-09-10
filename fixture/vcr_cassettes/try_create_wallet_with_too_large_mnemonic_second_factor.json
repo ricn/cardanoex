@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"salmon\",\"sound\",\"eight\",\"hub\",\"void\",\"citizen\",\"end\",\"diary\",\"cloud\",\"champion\",\"slam\",\"outside\",\"soul\",\"prevent\",\"aerobic\",\"ability\",\"oblige\",\"west\",\"clever\",\"merry\",\"humor\",\"dream\",\"venue\",\"resemble\"],\"mnemonic_sentence\":[\"door\",\"thunder\",\"bottom\",\"river\",\"mutual\",\"turtle\",\"coyote\",\"noise\",\"favorite\",\"proud\",\"patch\",\"fruit\",\"quiz\",\"near\",\"purity\",\"hedgehog\",\"nurse\",\"exit\",\"industry\",\"flavor\",\"raise\",\"credit\",\"census\",\"match\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"type\",\"jacket\",\"diamond\",\"nerve\",\"drastic\",\"range\",\"mixed\",\"release\",\"wreck\",\"angry\",\"episode\",\"liberty\",\"liar\",\"other\",\"wedding\",\"range\",\"educate\",\"swift\",\"large\",\"spring\",\"own\",\"legal\",\"valley\",\"dice\"],\"mnemonic_sentence\":[\"notable\",\"slush\",\"spawn\",\"conduct\",\"pass\",\"avocado\",\"banner\",\"history\",\"glide\",\"giant\",\"peasant\",\"street\",\"harbor\",\"fame\",\"floor\",\"local\",\"flash\",\"farm\",\"mixture\",\"marine\",\"flower\",\"slim\",\"scatter\",\"law\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -17,8 +17,8 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $['mnemonic_second_factor']: Invalid number of words: 9 or 12 words are expected.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Mon, 23 Aug 2021 19:36:49 GMT",
-        "Server": "Warp/3.3.14",
+        "Date": "Thu, 09 Sep 2021 22:21:47 GMT",
+        "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
       "status_code": 400,
