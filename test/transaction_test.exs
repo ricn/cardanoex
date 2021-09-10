@@ -92,7 +92,7 @@ defmodule Cardanoex.TransactionTest do
             %{
               address:
                 "addr_test1qruzy7l5nhsuckunkg6mmu2qyvgvesahfxmmymlzc78qur5ylvf75ukft7actuxlj0sqrkkerrvfmcnp0ksc6mnq04es9elzy7",
-              amount: %{quantity: 0_407_406, unit: "lovelace"},
+              amount: %{quantity: 407_406, unit: "lovelace"},
               assets: [
                 %{
                   policy_id: "6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7",
@@ -334,7 +334,7 @@ defmodule Cardanoex.TransactionTest do
     test "list transactions with min withdrawal of 1", %{wallet: wallet} do
       use_cassette "list_transactions_with_min_withdrawal_of_1" do
         {:ok, transactions} = Transaction.list(wallet.id, min_withdrawal: 1)
-        assert length(transactions) == 0
+        assert transactions == []
       end
     end
   end

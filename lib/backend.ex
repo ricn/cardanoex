@@ -118,10 +118,11 @@ defmodule Cardanoex.Backend do
   end
 
   defp response(result) do
-    cond do
-      Enum.member?([400, 403, 404], result.status) -> {:error, result.body["message"]}
-      true -> {:ok, result.body}
-    end
+    error_codes = [400, 403, 404]
+
+    if Enum.member?(error_codes, result.status),
+      do: {:error, result.body["message"]},
+      else: {:ok, result.body}
   end
 
   def client() do

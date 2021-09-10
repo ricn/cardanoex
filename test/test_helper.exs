@@ -34,7 +34,7 @@ defmodule TestHelpers do
   end
 
   defp wait_for_synced_wallet(wallet) do
-    status = if !System.get_env("GITHUB_ACTIONS"), do: wallet.state.status, else: "ready"
+    status = if System.get_env("GITHUB_ACTIONS"), do: "ready", else: wallet.state.status
 
     if status == "syncing" do
       Logger.info(wallet.state)
