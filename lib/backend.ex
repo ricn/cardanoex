@@ -18,17 +18,9 @@ defmodule Cardanoex.Backend do
     end
   end
 
-  def fetch_wallet(id) do
-    case Tesla.get(client(), "/wallets/#{id}") do
-      {:ok, result} -> response(result)
-    end
-  end
+  def fetch_wallet(id), do: get("/wallets/#{id}")
 
-  def list_wallets() do
-    case Tesla.get(client(), "/wallets") do
-      {:ok, result} -> response(result)
-    end
-  end
+  def list_wallets(), do: get("/wallets")
 
   def delete_wallet(id) do
     case Tesla.delete(client(), "/wallets/#{id}") do
@@ -36,11 +28,7 @@ defmodule Cardanoex.Backend do
     end
   end
 
-  def fetch_wallet_utxo_stats(id) do
-    case Tesla.get(client(), "/wallets/#{id}/statistics/utxos") do
-      {:ok, result} -> response(result)
-    end
-  end
+  def fetch_wallet_utxo_stats(id), do: get("/wallets/#{id}/statistics/utxos")
 
   def update_wallet_metadata(id, name) do
     data = %{name: name}
@@ -78,76 +66,20 @@ defmodule Cardanoex.Backend do
         v != nil
       end)
 
-    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions", query: query) do
-      {:ok, result} -> response(result)
-    end
+    get("/wallets/#{wallet_id}/transactions", query: query)
   end
 
-  def get_transaction(wallet_id, transaction_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/transactions/#{transaction_id}") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def list_addresses(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/addresses") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def inspect_address(address) do
-    case Tesla.get(client(), "/addresses/#{address}") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def network_information() do
-    case Tesla.get(client(), "/network/information") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def network_clock() do
-    case Tesla.get(client(), "/network/clock") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def network_parameters() do
-    case Tesla.get(client(), "/network/parameters") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def list_assets(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/assets") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def get_asset(wallet_id, policy_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/assets/#{policy_id}") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def list_stake_pools(stake) do
-    case Tesla.get(client(), "/stake-pools", query: [stake: stake]) do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def list_stake_keys(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/stake-keys") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def view_maintenance_actions do
-    case Tesla.get(client(), "/stake-pools/maintenance-actions") do
-      {:ok, result} -> response(result)
-    end
-  end
+  def get_transaction(wallet_id, transaction_id), do: get("/wallets/#{wallet_id}/transactions/#{transaction_id}")
+  def list_addresses(wallet_id), do: get("/wallets/#{wallet_id}/addresses")
+  def inspect_address(address), do: get("/addresses/#{address}")
+  def network_information(), do: get("/network/information")
+  def network_clock(), do: get("/network/clock")
+  def network_parameters(), do: get("/network/parameters")
+  def list_assets(wallet_id), do: get("/wallets/#{wallet_id}/assets")
+  def get_asset(wallet_id, policy_id), do: get("/wallets/#{wallet_id}/assets/#{policy_id}")
+  def list_stake_pools(stake), do: get("/stake-pools", query: [stake: stake])
+  def list_stake_keys(wallet_id), do: get("/wallets/#{wallet_id}/stake-keys")
+  def view_maintenance_actions, do: get("/stake-pools/maintenance-actions")
 
   def trigger_maintenance_action(action) do
     case Tesla.post(client(), "/stake-pools/maintenance-actions", %{maintenance_action: action}) do
@@ -173,23 +105,9 @@ defmodule Cardanoex.Backend do
     end
   end
 
-  def delegation_fees(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/delegation-fees") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def get_account_public_key(wallet_id) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/keys") do
-      {:ok, result} -> response(result)
-    end
-  end
-
-  def get_public_key(wallet_id, role, index) do
-    case Tesla.get(client(), "/wallets/#{wallet_id}/keys/#{role}/#{index}") do
-      {:ok, result} -> response(result)
-    end
-  end
+  def delegation_fees(wallet_id), do: get("/wallets/#{wallet_id}/delegation-fees")
+  def get_account_public_key(wallet_id), do: get("/wallets/#{wallet_id}/keys")
+  def get_public_key(wallet_id, role, index), do: get("/wallets/#{wallet_id}/keys/#{role}/#{index}")
 
   def create_account_public_key(wallet_id, passphrase, index, format, purpose \\ nil) do
     data = %{
@@ -200,6 +118,12 @@ defmodule Cardanoex.Backend do
     data = if purpose != nil, do: Map.put_new(data, :purpose, purpose), else: data
 
     case Tesla.post(client(), "/wallets/#{wallet_id}/keys/#{index}", data) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  defp get(url, query \\ []) do
+    case Tesla.get(client(), url, query) do
       {:ok, result} -> response(result)
     end
   end
