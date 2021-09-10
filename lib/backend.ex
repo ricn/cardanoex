@@ -13,9 +13,7 @@ defmodule Cardanoex.Backend do
         do: Map.put_new(data, :mnemonic_second_factor, mnemonic_second_factor),
         else: data
 
-    case Tesla.post(client(), "/wallets", data) do
-      {:ok, result} -> response(result)
-    end
+    post("/wallets", data)
   end
 
   def fetch_wallet(id), do: get("/wallets/#{id}")
@@ -30,33 +28,18 @@ defmodule Cardanoex.Backend do
 
   def fetch_wallet_utxo_stats(id), do: get("/wallets/#{id}/statistics/utxos")
 
-  def update_wallet_metadata(id, name) do
-    data = %{name: name}
-
-    case Tesla.put(client(), "/wallets/#{id}", data) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def update_wallet_metadata(id, name), do: put("/wallets/#{id}", %{name: name})
 
   def update_wallet_passphrase(id, old_passphrase, new_passphrase) do
     data = %{old_passphrase: old_passphrase, new_passphrase: new_passphrase}
-
-    case Tesla.put(client(), "/wallets/#{id}/passphrase", data) do
-      {:ok, result} -> response(result)
-    end
+    put("/wallets/#{id}/passphrase", data)
   end
 
-  def estimate_transaction_fee(wallet_id, transaction) do
-    case Tesla.post(client(), "/wallets/#{wallet_id}/payment-fees", transaction) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def estimate_transaction_fee(wallet_id, transaction),
+    do: post("/wallets/#{wallet_id}/payment-fees", transaction)
 
-  def create_transaction(wallet_id, transaction) do
-    case Tesla.post(client(), "/wallets/#{wallet_id}/transactions", transaction) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def create_transaction(wallet_id, transaction),
+    do: post("/wallets/#{wallet_id}/transactions", transaction)
 
   def list_transactions(wallet_id, start, stop, order, min_withdrawal) do
     query =
@@ -69,7 +52,9 @@ defmodule Cardanoex.Backend do
     get("/wallets/#{wallet_id}/transactions", query: query)
   end
 
-  def get_transaction(wallet_id, transaction_id), do: get("/wallets/#{wallet_id}/transactions/#{transaction_id}")
+  def get_transaction(wallet_id, transaction_id),
+    do: get("/wallets/#{wallet_id}/transactions/#{transaction_id}")
+
   def list_addresses(wallet_id), do: get("/wallets/#{wallet_id}/addresses")
   def inspect_address(address), do: get("/addresses/#{address}")
   def network_information(), do: get("/network/information")
@@ -81,19 +66,14 @@ defmodule Cardanoex.Backend do
   def list_stake_keys(wallet_id), do: get("/wallets/#{wallet_id}/stake-keys")
   def view_maintenance_actions, do: get("/stake-pools/maintenance-actions")
 
-  def trigger_maintenance_action(action) do
-    case Tesla.post(client(), "/stake-pools/maintenance-actions", %{maintenance_action: action}) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def trigger_maintenance_action(action),
+    do: post("/stake-pools/maintenance-actions", %{maintenance_action: action})
 
-  def join_stake_pool(wallet_id, stake_pool_id, passphrase) do
-    case Tesla.put(client(), "/stake-pools/#{stake_pool_id}/wallets/#{wallet_id}", %{
-           passphrase: passphrase
-         }) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def join_stake_pool(wallet_id, stake_pool_id, passphrase),
+    do:
+      put("/stake-pools/#{stake_pool_id}/wallets/#{wallet_id}", %{
+        passphrase: passphrase
+      })
 
   def quit_staking(wallet_id, passphrase) do
     case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}",
@@ -107,7 +87,9 @@ defmodule Cardanoex.Backend do
 
   def delegation_fees(wallet_id), do: get("/wallets/#{wallet_id}/delegation-fees")
   def get_account_public_key(wallet_id), do: get("/wallets/#{wallet_id}/keys")
-  def get_public_key(wallet_id, role, index), do: get("/wallets/#{wallet_id}/keys/#{role}/#{index}")
+
+  def get_public_key(wallet_id, role, index),
+    do: get("/wallets/#{wallet_id}/keys/#{role}/#{index}")
 
   def create_account_public_key(wallet_id, passphrase, index, format, purpose \\ nil) do
     data = %{
@@ -117,13 +99,23 @@ defmodule Cardanoex.Backend do
 
     data = if purpose != nil, do: Map.put_new(data, :purpose, purpose), else: data
 
-    case Tesla.post(client(), "/wallets/#{wallet_id}/keys/#{index}", data) do
-      {:ok, result} -> response(result)
-    end
+    post("/wallets/#{wallet_id}/keys/#{index}", data)
   end
 
   defp get(url, query \\ []) do
     case Tesla.get(client(), url, query) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  defp post(url, data) do
+    case Tesla.post(client(), url, data) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  defp put(url, data) do
+    case Tesla.put(client(), url, data) do
       {:ok, result} -> response(result)
     end
   end
