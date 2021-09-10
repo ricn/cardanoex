@@ -20,12 +20,7 @@ defmodule Cardanoex.Backend do
 
   def list_wallets(), do: get("/wallets")
 
-  def delete_wallet(id) do
-    case Tesla.delete(client(), "/wallets/#{id}") do
-      {:ok, result} -> response(result)
-    end
-  end
-
+  def delete_wallet(id), do: delete("/wallets/#{id}")
   def fetch_wallet_utxo_stats(id), do: get("/wallets/#{id}/statistics/utxos")
 
   def update_wallet_metadata(id, name), do: put("/wallets/#{id}", %{name: name})
@@ -75,15 +70,11 @@ defmodule Cardanoex.Backend do
         passphrase: passphrase
       })
 
-  def quit_staking(wallet_id, passphrase) do
-    case Tesla.delete(client(), "/stake-pools/*/wallets/#{wallet_id}",
-           body: %{
-             passphrase: passphrase
-           }
-         ) do
-      {:ok, result} -> response(result)
-    end
-  end
+  def quit_staking(wallet_id, passphrase),
+    do:
+      delete("/stake-pools/*/wallets/#{wallet_id}", %{
+        passphrase: passphrase
+      })
 
   def delegation_fees(wallet_id), do: get("/wallets/#{wallet_id}/delegation-fees")
   def get_account_public_key(wallet_id), do: get("/wallets/#{wallet_id}/keys")
@@ -116,6 +107,12 @@ defmodule Cardanoex.Backend do
 
   defp put(url, data) do
     case Tesla.put(client(), url, data) do
+      {:ok, result} -> response(result)
+    end
+  end
+
+  defp delete(url, data \\ %{}) do
+    case Tesla.delete(client(), url, body: data) do
       {:ok, result} -> response(result)
     end
   end
