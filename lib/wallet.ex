@@ -2,6 +2,8 @@ defmodule Cardanoex.Wallet do
   alias Cardanoex.Backend
   alias Cardanoex.Util
 
+  @type wallet_id :: String.t()
+
   @moduledoc """
   The wallet module lets you work with Cardano wallets.
 
@@ -9,6 +11,13 @@ defmodule Cardanoex.Wallet do
   so each time you delete and create a wallet again, it receives the same ID.
   """
 
+  @spec create_wallet(
+          name: String.t(),
+          mnemonic_sentence: String.t(),
+          passphrase: String.t(),
+          mnemonic_second_factor: String.t()
+        ) ::
+          {:error, String.t()} | {:ok, map}
   @doc """
   Create and restore a wallet from a mnemonic sentence.
 
@@ -51,6 +60,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec fetch(wallet_id()) :: {:error, any} | {:ok, map}
   @doc """
   Fetch a wallet by wallet id
 
@@ -64,6 +74,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec list :: {:error, String.t()} | {:ok, list()}
   @doc """
   Return a list of known wallets, ordered from oldest to newest.
   """
@@ -74,6 +85,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec delete(wallet_id()) :: {:error, any} | {:ok, :no_content}
   @doc """
   Delete wallet by wallet id
 
@@ -87,6 +99,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec fetch_utxo_stats(wallet_id()) :: {:error, String.t()} | {:ok, map}
   @doc """
   Return the UTxOs distribution across the whole wallet, in the form of a histogram.
 
@@ -100,6 +113,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec update(wallet_id(), String.t()) :: {:error, String.t()} | {:ok, map}
   @doc """
   Update the name of a wallet
 
@@ -114,6 +128,8 @@ defmodule Cardanoex.Wallet do
     end
   end
 
+  @spec update_passphrase(wallet_id(), String.t(), String.t()) ::
+          {:error, String.t()} | :ok
   @doc """
   Update passphrase for a wallet
 
@@ -124,7 +140,7 @@ defmodule Cardanoex.Wallet do
   """
   def update_passphrase(wallet_id, old_passphrase, new_passphrase) do
     case Backend.update_wallet_passphrase(wallet_id, old_passphrase, new_passphrase) do
-      {:ok, _} -> {:ok, :no_content}
+      {:ok, _} -> :ok
       {:error, message} -> {:error, message}
     end
   end

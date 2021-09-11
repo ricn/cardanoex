@@ -1,5 +1,8 @@
 defmodule Cardanoex.Backend do
   @moduledoc false
+
+  @spec create_wallet(String.t(), String.t(), String.t(), String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, any}
   def create_wallet(name, mnemonic_sentence, passphrase, mnemonic_second_factor, address_pool_gap) do
     data = %{
       name: name,
@@ -16,15 +19,22 @@ defmodule Cardanoex.Backend do
     post("/wallets", data)
   end
 
+  @spec fetch_wallet(String.t()) :: {:error, String.t()} | {:ok, list()}
   def fetch_wallet(id), do: get("/wallets/#{id}")
 
+  @spec list_wallets :: {:error, String.t()} | {:ok, list()}
   def list_wallets(), do: get("/wallets")
 
+  @spec delete_wallet(String.t()) :: {:error, String.t()} | {:ok, any}
   def delete_wallet(id), do: delete("/wallets/#{id}")
+  @spec fetch_wallet_utxo_stats(String.t()) :: {:error, String.t()} | {:ok, any}
   def fetch_wallet_utxo_stats(id), do: get("/wallets/#{id}/statistics/utxos")
 
+  @spec update_wallet_metadata(String.t(), String.t()) :: {:error, String.t()} | {:ok, any}
   def update_wallet_metadata(id, name), do: put("/wallets/#{id}", %{name: name})
 
+  @spec update_wallet_passphrase(String.t(), String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, any}
   def update_wallet_passphrase(id, old_passphrase, new_passphrase) do
     data = %{old_passphrase: old_passphrase, new_passphrase: new_passphrase}
     put("/wallets/#{id}/passphrase", data)

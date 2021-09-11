@@ -258,8 +258,7 @@ defmodule Cardanoex.WalletTest do
         passphrase = "Super_Sekret3.14!"
         {:ok, created_wallet} = Wallet.create_wallet(wallet_attrs())
 
-        {:ok, _} =
-          Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
+        :ok = Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
 
         {:ok, updated_wallet} = Wallet.fetch(created_wallet.id)
 
