@@ -3,6 +3,60 @@ defmodule Cardanoex.Wallet do
   alias Cardanoex.Util
 
   @type wallet_id :: String.t()
+  @type assets :: %{
+          available: list(),
+          total: list()
+        }
+  @type balance :: %{
+          available: %{quantity: non_neg_integer(), unit: String.t()},
+          reward: %{quantity: non_neg_integer(), unit: String.t()},
+          total: %{quantity: non_neg_integer(), unit: String.t()}
+        }
+  @type delegation :: %{active: %{status: String.t()}, next: list()}
+  @type passphrase :: %{last_updated_at: String.t()}
+  @type state :: %{progress: %{quantity: non_neg_integer(), unit: String.t()}, status: String.t()}
+  @type tip :: %{
+          absolute_slot_number: non_neg_integer(),
+          epoch_number: non_neg_integer(),
+          height: %{quantity: non_neg_integer(), unit: String.t()},
+          slot_number: non_neg_integer(),
+          time: String.t()
+        }
+  @type wallet :: %{
+          address_pool_gap: non_neg_integer(),
+          assets: assets(),
+          balance: balance(),
+          delegation: delegation(),
+          id: String.t(),
+          name: String.t(),
+          passphrase: passphrase(),
+          state: state(),
+          tip: tip()
+        }
+
+  @type utxo_stats :: %{
+          distribution: %{
+            "10": non_neg_integer(),
+            "100": non_neg_integer(),
+            "1000": non_neg_integer(),
+            "10000": non_neg_integer(),
+            "100000": non_neg_integer(),
+            "1000000": non_neg_integer(),
+            "10000000": non_neg_integer(),
+            "100000000": non_neg_integer(),
+            "1000000000": non_neg_integer(),
+            "10000000000": non_neg_integer(),
+            "100000000000": non_neg_integer(),
+            "1000000000000": non_neg_integer(),
+            "10000000000000": non_neg_integer(),
+            "100000000000000": non_neg_integer(),
+            "1000000000000000": non_neg_integer(),
+            "10000000000000000": non_neg_integer(),
+            "45000000000000000": non_neg_integer()
+          },
+          scale: String.t(),
+          total: %{quantity: non_neg_integer(), unit: String.t()}
+        }
 
   @moduledoc """
   The wallet module lets you work with Cardano wallets.
@@ -17,7 +71,7 @@ defmodule Cardanoex.Wallet do
           passphrase: String.t(),
           mnemonic_second_factor: String.t()
         ) ::
-          {:error, String.t()} | {:ok, map}
+          {:error, String.t()} | {:ok, wallet()}
   @doc """
   Create and restore a wallet from a mnemonic sentence.
 
@@ -60,7 +114,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec fetch(wallet_id()) :: {:error, any} | {:ok, map}
+  @spec fetch(wallet_id()) :: {:error, String.t()} | {:ok, wallet()}
   @doc """
   Fetch a wallet by wallet id
 
@@ -74,7 +128,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec list :: {:error, String.t()} | {:ok, list()}
+  @spec list :: {:error, String.t()} | {:ok, list(wallet())}
   @doc """
   Return a list of known wallets, ordered from oldest to newest.
   """
@@ -85,7 +139,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec delete(wallet_id()) :: {:error, any} | {:ok, :no_content}
+  @spec delete(wallet_id()) :: {:error, String.t()} | :ok
   @doc """
   Delete wallet by wallet id
 
@@ -94,12 +148,12 @@ defmodule Cardanoex.Wallet do
   """
   def delete(wallet_id) do
     case Backend.delete_wallet(wallet_id) do
-      {:ok, _} -> {:ok, :no_content}
+      {:ok, _} -> :ok
       {:error, message} -> {:error, message}
     end
   end
 
-  @spec fetch_utxo_stats(wallet_id()) :: {:error, String.t()} | {:ok, map}
+  @spec fetch_utxo_stats(wallet_id()) :: {:error, String.t()} | {:ok, utxo_stats()}
   @doc """
   Return the UTxOs distribution across the whole wallet, in the form of a histogram.
 
@@ -113,7 +167,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec update(wallet_id(), String.t()) :: {:error, String.t()} | {:ok, map}
+  @spec update(wallet_id(), String.t()) :: {:error, String.t()} | {:ok, wallet()}
   @doc """
   Update the name of a wallet
 

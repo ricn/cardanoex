@@ -27,3 +27,4 @@ cardano-*.tar
 /tmp
 
 TODO.md
+.DS_Store
