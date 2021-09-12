@@ -2,10 +2,107 @@ defmodule Cardanoex.Transaction do
   alias Cardanoex.Backend
   alias Cardanoex.Util
 
+  @type asset :: %{
+          policy_id: String.t(),
+          asset_name: String.t(),
+          quantity: non_neg_integer()
+        }
+
+  @type payment :: %{
+          address: String.t(),
+          amount: non_neg_integer(),
+          assets: list(asset())
+        }
+
+  @type create_transaction :: %{
+          passphrase: String.t(),
+          payments: list(payment()),
+          withdrawal: String.t(),
+          metadata: map()
+        }
+
+  @type amount :: %{
+          quantity: non_neg_integer(),
+          unit: String.t()
+        }
+
+  @type fee_estimation :: %{
+          deposit: amount(),
+          estimated_max: amount(),
+          estimated_min: amount(),
+          minimum_coins: list(amount())
+        }
+
+  @type input :: %{
+          address: String.t(),
+          amount: amount(),
+          assets: list(asset()),
+          id: String.t(),
+          index: non_neg_integer()
+        }
+
+  @type output :: %{
+          address: String.t(),
+          amount: amount(),
+          assets: list(asset())
+        }
+
+  @type collateral :: %{
+          address: String.t(),
+          amount: amount(),
+          id: String.t(),
+          index: non_neg_integer()
+        }
+
+  @type withdrawal :: %{
+          stake_address: String.t(),
+          amount: amount()
+        }
+
+  @type transaction ::
+          %{
+            amount: amount(),
+            collateral: list(collateral()),
+            deposit: amount(),
+            depth: %{quantity: non_neg_integer(), unit: String.t()},
+            direction: String.t(),
+            expires_at: %{
+              absolute_slot_number: non_neg_integer(),
+              epoch_number: non_neg_integer(),
+              slot_number: non_neg_integer(),
+              time: String.t()
+            },
+            fee: amount(),
+            id: String.t(),
+            inputs: list(input()),
+            inserted_at: %{
+              absolute_slot_number: non_neg_integer(),
+              epoch_number: non_neg_integer(),
+              height: %{quantity: non_neg_integer(), unit: String.t()},
+              slot_number: non_neg_integer(),
+              time: String.t()
+            },
+            metadata: map | nil,
+            mint: list(),
+            outputs: list(output()),
+            pending_since: %{
+              absolute_slot_number: non_neg_integer(),
+              epoch_number: non_neg_integer(),
+              height: %{quantity: non_neg_integer(), unit: String.t()},
+              slot_number: non_neg_integer(),
+              time: String.t()
+            },
+            status: String.t(),
+            withdrawals: list(withdrawal),
+            script_validity: String.t() | nil
+          }
+
   @moduledoc """
   The Transaction module lets you work with transactions for a wallet.
   """
 
+  @spec estimate_fee(String.t(), create_transaction()) ::
+          {:error, String.t()} | {:ok, fee_estimation()}
   @doc """
   Estimate fee for the transaction.
   The estimate is made by assembling multiple transactions and analyzing the distribution of their fees.
@@ -61,6 +158,7 @@ defmodule Cardanoex.Transaction do
     end
   end
 
+  @spec create(String.t(), create_transaction()) :: {:error, String.t()} | {:ok, transaction}
   @doc """
   Create and send transaction from the wallet.
 
@@ -114,6 +212,13 @@ defmodule Cardanoex.Transaction do
     end
   end
 
+  @spec list(String.t(),
+          start: String.t(),
+          stop: String.t(),
+          order: atom(),
+          min_withdrawal: non_neg_integer()
+        ) ::
+          {:error, String.t()} | {:ok, list(transaction())}
   @doc """
   Lists all incoming and outgoing wallet's transactions.
 
@@ -145,6 +250,7 @@ defmodule Cardanoex.Transaction do
     end
   end
 
+  @spec get(String.t(), String.t()) :: {:error, String.t()} | {:ok, transaction()}
   @doc """
   Get transaction by id.
 

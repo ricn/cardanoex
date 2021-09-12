@@ -40,12 +40,16 @@ defmodule Cardanoex.Backend do
     put("/wallets/#{id}/passphrase", data)
   end
 
+  @spec estimate_transaction_fee(String.t(), map()) :: {:error, String.t()} | {:ok, map()}
   def estimate_transaction_fee(wallet_id, transaction),
     do: post("/wallets/#{wallet_id}/payment-fees", transaction)
 
+  @spec create_transaction(String.t(), map()) :: {:error, String.t()} | {:ok, map()}
   def create_transaction(wallet_id, transaction),
     do: post("/wallets/#{wallet_id}/transactions", transaction)
 
+  @spec list_transactions(String.t(), String.t(), String.t(), atom(), non_neg_integer()) ::
+          {:error, String.t()} | {:ok, list(map())}
   def list_transactions(wallet_id, start, stop, order, min_withdrawal) do
     query =
       [start: start, end: stop, order: order, minWithdrawal: min_withdrawal]
@@ -57,6 +61,7 @@ defmodule Cardanoex.Backend do
     get("/wallets/#{wallet_id}/transactions", query: query)
   end
 
+  @spec get_transaction(String.t(), String.t()) :: {:error, String.t()} | {:ok, map()}
   def get_transaction(wallet_id, transaction_id),
     do: get("/wallets/#{wallet_id}/transactions/#{transaction_id}")
 
