@@ -69,8 +69,11 @@ defmodule Cardanoex.Backend do
   def list_addresses(wallet_id), do: get("/wallets/#{wallet_id}/addresses")
   @spec inspect_address(String.t()) :: {:error, String.t()} | {:ok, map()}
   def inspect_address(address), do: get("/addresses/#{address}")
+  @spec network_information :: {:error, String.t()} | {:ok, map()}
   def network_information(), do: get("/network/information")
+  @spec network_clock :: {:error, String.t()} | {:ok, map()}
   def network_clock(), do: get("/network/clock")
+  @spec network_parameters :: {:error, String.t()} | {:ok, map()}
   def network_parameters(), do: get("/network/parameters")
   def list_assets(wallet_id), do: get("/wallets/#{wallet_id}/assets")
   def get_asset(wallet_id, policy_id), do: get("/wallets/#{wallet_id}/assets/#{policy_id}")
