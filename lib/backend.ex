@@ -27,6 +27,7 @@ defmodule Cardanoex.Backend do
 
   @spec delete_wallet(String.t()) :: {:error, String.t()} | {:ok, any}
   def delete_wallet(id), do: delete("/wallets/#{id}")
+
   @spec fetch_wallet_utxo_stats(String.t()) :: {:error, String.t()} | {:ok, any}
   def fetch_wallet_utxo_stats(id), do: get("/wallets/#{id}/statistics/utxos")
 
@@ -67,15 +68,23 @@ defmodule Cardanoex.Backend do
 
   @spec list_addresses(String.t()) :: {:error, String.t()} | {:ok, list(map())}
   def list_addresses(wallet_id), do: get("/wallets/#{wallet_id}/addresses")
+
   @spec inspect_address(String.t()) :: {:error, String.t()} | {:ok, map()}
   def inspect_address(address), do: get("/addresses/#{address}")
+
   @spec network_information :: {:error, String.t()} | {:ok, map()}
   def network_information(), do: get("/network/information")
+
   @spec network_clock :: {:error, String.t()} | {:ok, map()}
   def network_clock(), do: get("/network/clock")
+
   @spec network_parameters :: {:error, String.t()} | {:ok, map()}
   def network_parameters(), do: get("/network/parameters")
+
+  @spec list_assets(String.t()) :: {:error, String.t()} | {:ok, list(map())}
   def list_assets(wallet_id), do: get("/wallets/#{wallet_id}/assets")
+
+  @spec get_asset(String.t(), String.t()) :: {:error, String.t()} | {:ok, map()}
   def get_asset(wallet_id, policy_id), do: get("/wallets/#{wallet_id}/assets/#{policy_id}")
   def list_stake_pools(stake), do: get("/stake-pools", query: [stake: stake])
   def list_stake_keys(wallet_id), do: get("/wallets/#{wallet_id}/stake-keys")
