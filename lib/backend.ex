@@ -86,25 +86,35 @@ defmodule Cardanoex.Backend do
 
   @spec get_asset(String.t(), String.t()) :: {:error, String.t()} | {:ok, map()}
   def get_asset(wallet_id, policy_id), do: get("/wallets/#{wallet_id}/assets/#{policy_id}")
+
+  @spec list_stake_pools(non_neg_integer()) :: {:error, String.t()} | {:ok, list(map())}
   def list_stake_pools(stake), do: get("/stake-pools", query: [stake: stake])
+
+  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, list(map())}
   def list_stake_keys(wallet_id), do: get("/wallets/#{wallet_id}/stake-keys")
+
+  @spec view_maintenance_actions :: {:error, String.t()} | {:ok, map()}
   def view_maintenance_actions, do: get("/stake-pools/maintenance-actions")
 
+  @spec trigger_maintenance_action(String.t()) :: {:error, String.t()} | {:ok, any}
   def trigger_maintenance_action(action),
     do: post("/stake-pools/maintenance-actions", %{maintenance_action: action})
 
+  @spec join_stake_pool(String.t(), String.t(), String.t()) :: {:error, String.t()} | {:ok, map()}
   def join_stake_pool(wallet_id, stake_pool_id, passphrase),
     do:
       put("/stake-pools/#{stake_pool_id}/wallets/#{wallet_id}", %{
         passphrase: passphrase
       })
 
+  @spec quit_staking(String.t(), String.t()) :: {:error, String.t()} | {:ok, map()}
   def quit_staking(wallet_id, passphrase),
     do:
       delete("/stake-pools/*/wallets/#{wallet_id}", %{
         passphrase: passphrase
       })
 
+  @spec delegation_fees(String.t()) :: {:error, String.t()} | {:ok, map()}
   def delegation_fees(wallet_id), do: get("/wallets/#{wallet_id}/delegation-fees")
   def get_account_public_key(wallet_id), do: get("/wallets/#{wallet_id}/keys")
 
