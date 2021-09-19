@@ -6,6 +6,24 @@ defmodule Cardanoex.Asset do
   The asset module let's you work with native assets for a wallet.
   """
 
+  @type asset :: %{
+          policy_id: String.t(),
+          asset_name: String.t(),
+          fingerprint: String.t(),
+          metadata: metadata(),
+          metadata_error: String.t()
+        }
+
+  @type metadata :: %{
+          name: String.t(),
+          description: String.t(),
+          ticker: String.t(),
+          decimals: non_neg_integer(),
+          url: String.t(),
+          logo: String.t()
+        }
+
+  @spec list(String.t()) :: {:error, String.t()} | {:ok, list(asset())}
   @doc """
   List all native assets for a wallet.
 
@@ -19,6 +37,7 @@ defmodule Cardanoex.Asset do
     end
   end
 
+  @spec get(String.t(), String.t()) :: {:error, String.t()} | {:ok, asset()}
   @doc """
   Get information about a specific asset.
 

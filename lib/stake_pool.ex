@@ -1,11 +1,109 @@
 defmodule Cardanoex.StakePool do
   alias Cardanoex.Backend
   alias Cardanoex.Util
+  alias Cardanoex.Transaction
 
   @moduledoc """
   The stake pool module let's you manage stake pools.
   """
 
+  @type stake_pool :: %{
+          id: String.t(),
+          metrics: %{
+            non_myopic_member_rewards: %{
+              quantity: non_neg_integer(),
+              unit: String.t()
+            }
+          },
+          relative_stake: %{
+            quantity: float(),
+            unit: String.t()
+          },
+          saturation: float(),
+          produced_blocks: %{
+            quantity: non_neg_integer(),
+            unit: String.t()
+          },
+          cost: %{
+            quantity: non_neg_integer(),
+            unit: String.t()
+          },
+          margin: %{
+            quantity: float(),
+            unit: String.t()
+          },
+          pledge: %{
+            quantity: non_neg_integer(),
+            unit: String.t()
+          },
+          metadata: %{
+            ticker: String.t(),
+            name: String.t(),
+            description: String.t(),
+            homepage: String.t()
+          },
+          retirement: %{
+            epoch_number: non_neg_integer(),
+            epoch_start_time: String.t()
+          },
+          flags: list(String.t())
+        }
+
+  @type stake_key :: %{
+          ours:
+            list(%{
+              index: non_neg_integer(),
+              key: String.t(),
+              stake: %{quantity: non_neg_integer(), unit: String.t()},
+              reward_balance: %{quantity: non_neg_integer(), unit: String.t()},
+              delegation: %{
+                active: %{
+                  status: String.t(),
+                  target: String.t()
+                },
+                next:
+                  list(%{
+                    status: String.t(),
+                    target: String.t(),
+                    changes_at: %{
+                      epoch_number: non_neg_integer(),
+                      epoch_start_time: String.t()
+                    }
+                  })
+              }
+            }),
+          foreign:
+            list(%{
+              key: String.t(),
+              stake: %{
+                quantity: non_neg_integer(),
+                unit: String.t()
+              },
+              reward_balance: %{
+                quantity: non_neg_integer(),
+                unit: String.t()
+              }
+            }),
+          none: %{
+            stake: %{
+              quantity: non_neg_integer(),
+              unit: String.t()
+            }
+          }
+        }
+
+  @type fee_estimation :: %{
+          estimated_min: %{quantity: non_neg_integer(), unit: String.t()},
+          estimated_max: %{quantity: non_neg_integer(), unit: String.t()},
+          minimum_coins:
+            list(%{
+              quantity: non_neg_integer(),
+              unit: String.t()
+            }),
+          deposit: %{quantity: non_neg_integer(), unit: String.t()}
+        }
+
+  @spec list(non_neg_integer()) :: {:error, String.t()} | {:ok, list(stake_pool)}
   @doc """
   List all known stake pools ordered by descending non_myopic_member_rewards. The non_myopic_member_rewards — and thus the ordering — depends on the `stake` parameter.
 
@@ -21,6 +119,7 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, list(stake_key())}
   @doc """
   List stake-keys relevant to the wallet, and how much ada is associated with each.
 
@@ -34,6 +133,15 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec view_maintenance_actions ::
+          {:error, String.t()}
+          | {:ok,
+             %{
+               gc_stake_pools: %{
+                 status: String.t(),
+                 last_run: String.t()
+               }
+             }}
   @doc """
   Returns the current status of the stake pools maintenance actions.
   """
@@ -44,6 +152,7 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec trigger_maintenance_action(String.t()) :: :ok | {:error, String.t()}
   @doc """
   Performs maintenance actions on stake pools, such as triggering metadata garbage collection.
 
@@ -56,6 +165,7 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec estimate_fee(String.t()) :: {:error, String.t()} | {:ok, fee_estimation}
   @doc """
   Estimate fee for joining or leaving a stake pool. Note that it is an estimation because a delegation induces a transaction for which coins have to be selected randomly within the wallet. Because of this randomness, fees can only be estimated.
 
@@ -69,6 +179,8 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec join(String.t(), String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, Transaction.transaction()}
   @doc """
   Delegate all (current and future) addresses from the given wallet to the given stake pool.
 
@@ -86,6 +198,7 @@ defmodule Cardanoex.StakePool do
     end
   end
 
+  @spec quit(String.t(), String.t()) :: {:error, String.t()} | {:ok, Transaction.transaction()}
   @doc """
   Stop delegating completely. The wallet's stake will become inactive.
 

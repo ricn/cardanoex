@@ -5,6 +5,7 @@ defmodule Cardanoex.Key do
   The Key module helps you to work with public keys for a wallet.
   """
 
+  @spec get_account_public_key(String.t()) :: {:error, String.t()} | {:ok, String.t()}
   @doc """
   Retrieve the account public key of this wallet.
 
@@ -18,6 +19,8 @@ defmodule Cardanoex.Key do
     end
   end
 
+  @spec get_public_key(String.t(), String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, String.t()}
   @doc """
   Return a public key for a given role and derivation index.
 
@@ -33,6 +36,8 @@ defmodule Cardanoex.Key do
     end
   end
 
+  @spec create_account_public_key(String.t(), map()) ::
+          {:error, String.t()} | {:ok, String.t()}
   @doc """
   Derive an account public key for any account index. For this key derivation to be possible, the wallet must have been created from mnemonic.
   It is possible to use the optional `purpose` field to override that branch of the derivation path with different hardened derivation index.

@@ -39,7 +39,8 @@ defmodule Cardanoex.MixProject do
       {:inch_ex, "2.0.0", only: :docs},
       {:exvcr, "0.13.2", only: :test},
       {:excoveralls, "0.14.2"},
-      {:credo, "1.5.6", only: [:dev, :test], runtime: false}
+      {:credo, "1.5.6", only: [:dev, :test], runtime: false},
+      {:dialyxir, "1.1.0", only: [:dev], runtime: false}
     ]
   end
 

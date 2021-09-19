@@ -168,7 +168,7 @@ defmodule Cardanoex.WalletTest do
 
         attrs = Keyword.put(wallet_attrs(), :mnemonic_sentence, mnemonic)
         {:ok, wallet} = Wallet.create_wallet(attrs)
-        {:ok, _} = Wallet.delete(wallet.id)
+        :ok = Wallet.delete(wallet.id)
         {:error, message} = Wallet.fetch(wallet.id)
         assert "I couldn't find a wallet with the given id: #{wallet.id}" == message
       end
@@ -195,8 +195,8 @@ defmodule Cardanoex.WalletTest do
     test "fetch successfully" do
       use_cassette "fetch_successfully" do
         {:ok, wallet} = Wallet.create_wallet(wallet_attrs())
-        {:ok, utox_stats} = Wallet.fetch_utxo_stats(wallet.id)
-        assert utox_stats.distribution != nil
+        {:ok, utxo_stats} = Wallet.fetch_utxo_stats(wallet.id)
+        assert utxo_stats.distribution != nil
       end
     end
 
@@ -258,8 +258,7 @@ defmodule Cardanoex.WalletTest do
         passphrase = "Super_Sekret3.14!"
         {:ok, created_wallet} = Wallet.create_wallet(wallet_attrs())
 
-        {:ok, _} =
-          Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
+        :ok = Wallet.update_passphrase(created_wallet.id, passphrase, "New_Super_Sekret_6.28!")
 
         {:ok, updated_wallet} = Wallet.fetch(created_wallet.id)
 
