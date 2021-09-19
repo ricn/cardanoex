@@ -1,5 +1,6 @@
 defmodule Cardanoex.Util do
   @moduledoc false
+  @spec keys_to_atom(map()) :: map()
   def keys_to_atom(map) do
     Map.new(
       map,
@@ -19,5 +20,6 @@ defmodule Cardanoex.Util do
     end
   end
 
+  @spec generate_mnemonic(number()) :: [String.t()]
   def generate_mnemonic(strength \\ 256), do: String.split(Mnemonic.generate(strength), " ")
 end

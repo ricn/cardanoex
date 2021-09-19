@@ -40,7 +40,8 @@ defmodule Cardanoex.MixProject do
       {:exvcr, "0.13.2", only: :test},
       {:excoveralls, "0.14.2"},
       {:credo, "1.5.6", only: [:dev, :test], runtime: false},
-      {:dialyxir, "1.1.0", only: [:dev], runtime: false}
+      {:dialyxir, "1.1.0", only: [:dev], runtime: false},
+      {:doctor, "~> 0.18.0", only: :dev}
     ]
   end
 
