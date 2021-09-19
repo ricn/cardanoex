@@ -116,11 +116,23 @@ defmodule Cardanoex.Backend do
 
   @spec delegation_fees(String.t()) :: {:error, String.t()} | {:ok, map()}
   def delegation_fees(wallet_id), do: get("/wallets/#{wallet_id}/delegation-fees")
+
+  @spec get_account_public_key(String.t()) :: {:error, String.t()} | {:ok, String.t()}
   def get_account_public_key(wallet_id), do: get("/wallets/#{wallet_id}/keys")
 
+  @spec get_public_key(String.t(), String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, String.t()}
   def get_public_key(wallet_id, role, index),
     do: get("/wallets/#{wallet_id}/keys/#{role}/#{index}")
 
+  @spec create_account_public_key(
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil
+        ) ::
+          {:error, String.t()} | {:ok, String.t()}
   def create_account_public_key(wallet_id, passphrase, index, format, purpose \\ nil) do
     data = %{
       passphrase: passphrase,
