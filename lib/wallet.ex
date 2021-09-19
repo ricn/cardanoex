@@ -2,7 +2,6 @@ defmodule Cardanoex.Wallet do
   alias Cardanoex.Backend
   alias Cardanoex.Util
 
-  @type wallet_id :: String.t()
   @type assets :: %{
           available: list(),
           total: list()
@@ -114,7 +113,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec fetch(wallet_id()) :: {:error, String.t()} | {:ok, wallet()}
+  @spec fetch(String.t()) :: {:error, String.t()} | {:ok, wallet()}
   @doc """
   Fetch a wallet by wallet id
 
@@ -139,7 +138,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec delete(wallet_id()) :: {:error, String.t()} | :ok
+  @spec delete(String.t()) :: {:error, String.t()} | :ok
   @doc """
   Delete wallet by wallet id
 
@@ -153,7 +152,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec fetch_utxo_stats(wallet_id()) :: {:error, String.t()} | {:ok, utxo_stats()}
+  @spec fetch_utxo_stats(String.t()) :: {:error, String.t()} | {:ok, utxo_stats()}
   @doc """
   Return the UTxOs distribution across the whole wallet, in the form of a histogram.
 
@@ -167,7 +166,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec update(wallet_id(), String.t()) :: {:error, String.t()} | {:ok, wallet()}
+  @spec update(String.t(), String.t()) :: {:error, String.t()} | {:ok, wallet()}
   @doc """
   Update the name of a wallet
 
@@ -182,7 +181,7 @@ defmodule Cardanoex.Wallet do
     end
   end
 
-  @spec update_passphrase(wallet_id(), String.t(), String.t()) ::
+  @spec update_passphrase(String.t(), String.t(), String.t()) ::
           {:error, String.t()} | :ok
   @doc """
   Update passphrase for a wallet
