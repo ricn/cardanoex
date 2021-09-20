@@ -2,7 +2,6 @@
 
 [![Hex.pm](https://img.shields.io/hexpm/v/cardanoex.svg)](https://hex.pm/packages/cardanoex)
 [![Tests](https://github.com/ricn/cardanoex/actions/workflows/elixir.yml/badge.svg)](https://github.com/ricn/cardanoex/actions/workflows/elixir.yml)
-[![Inline docs](http://inch-ci.org/github/ricn/cardanoex.svg?branch=master)](http://inch-ci.org/github/ricn/cardanoex)
 [![Coverage Status](https://coveralls.io/repos/github/ricn/cardanoex/badge.svg?branch=master)](https://coveralls.io/github/ricn/cardanoex?branch=master)
 
 The library is still in early development. Consider it experimental and the API might change in the future.
