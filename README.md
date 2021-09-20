@@ -6,7 +6,7 @@
 
 Welcome to the documentation for Cardanoex. 
 
-The aim of this project is to offer a set of tools for interacting with [Cardano](https://cardano.org/) blockchain platform in Elixir. It provides high level modules representing the Cardano environment, like wallets, addresses, transactions, native assets & stake pools.
+The aim of this library is to offer a set of tools for interacting with [Cardano](https://cardano.org/) blockchain platform in Elixir. It provides high level modules representing the Cardano environment, like wallets, addresses, transactions, native assets & stake pools.
 
 It currently uses the REST protocol offered by the [cardano-wallet](https://github.com/input-output-hk/cardano-wallet) binary.
 
