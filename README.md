@@ -4,7 +4,11 @@
 [![Tests](https://github.com/ricn/cardanoex/actions/workflows/elixir.yml/badge.svg)](https://github.com/ricn/cardanoex/actions/workflows/elixir.yml)
 [![Coverage Status](https://coveralls.io/repos/github/ricn/cardanoex/badge.svg?branch=master)](https://coveralls.io/github/ricn/cardanoex?branch=master)
 
-The library is still in early development. Consider it experimental and the API might change in the future.
+Welcome to the documentation for Cardanoex. 
+
+The aim of this project is to offer a set of tools for interacting with [Cardano](https://cardano.org/) blockchain platform in Elixir. It provides high level modules representing the Cardano environment, like wallets, addresses, transactions, native assets & stake pools.
+
+It currently uses the REST protocol offered by the [cardano-wallet](https://github.com/input-output-hk/cardano-wallet) binary.
 
 This library is the implementation of [the idea](https://cardano.ideascale.com/a/dtd/Elixir-library/350635-48088) submitted to Catalyst project.
 
