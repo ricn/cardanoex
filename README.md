@@ -23,7 +23,7 @@ Add `cardanoex` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:cardanoex, "~> 0.4.0"}
+    {:cardanoex, "~> 0.5.0"}
   ]
 end
 ```
