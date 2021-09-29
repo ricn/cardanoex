@@ -19,7 +19,7 @@ defmodule Cardanoex.Backend do
     post("/wallets", data)
   end
 
-  @spec fetch_wallet(String.t()) :: {:error, String.t()} | {:ok, list()}
+  @spec fetch_wallet(String.t()) :: {:error, String.t()} | {:ok, map()}
   def fetch_wallet(id), do: get("/wallets/#{id}")
 
   @spec list_wallets :: {:error, String.t()} | {:ok, list()}
@@ -90,7 +90,7 @@ defmodule Cardanoex.Backend do
   @spec list_stake_pools(non_neg_integer()) :: {:error, String.t()} | {:ok, list(map())}
   def list_stake_pools(stake), do: get("/stake-pools", query: [stake: stake])
 
-  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, list(map())}
+  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, map()}
   def list_stake_keys(wallet_id), do: get("/wallets/#{wallet_id}/stake-keys")
 
   @spec view_maintenance_actions :: {:error, String.t()} | {:ok, map()}

@@ -11,13 +11,13 @@ defmodule Cardanoex.Transaction do
   @type payment :: %{
           address: String.t(),
           amount: non_neg_integer(),
-          assets: list(asset())
+          assets: list(asset()) | nil
         }
 
   @type create_transaction :: %{
           passphrase: String.t(),
           payments: list(payment()),
-          withdrawal: String.t(),
+          withdrawal: String.t() | nil,
           metadata: map()
         }
 

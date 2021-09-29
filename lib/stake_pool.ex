@@ -119,7 +119,7 @@ defmodule Cardanoex.StakePool do
     end
   end
 
-  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, list(stake_key())}
+  @spec list_stake_keys(String.t()) :: {:error, String.t()} | {:ok, stake_key()}
   @doc """
   List stake-keys relevant to the wallet, and how much ada is associated with each.
 
