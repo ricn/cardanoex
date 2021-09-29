@@ -23,7 +23,7 @@ Add `cardanoex` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:cardanoex, "~> 0.5.0"}
+    {:cardanoex, "~> 0.6.0"}
   ]
 end
 ```
@@ -69,5 +69,5 @@ payments = %{
 
 ## Donate
 
-If you like to support the idea with a donation, the address is:
+If you like to support the project with a donation, the address is:
 `addr1qyfe0we0tkdu9qn8ztufplz0lmktgpx9zxnj54cd7y359wsyhwvjrl2zkf5cy72yv6p47f2gs5zglyplfggh6e5n4p0sdvvrng`
