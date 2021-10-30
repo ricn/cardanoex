@@ -17,7 +17,7 @@
       "body": "{\"code\":\"wrong_encryption_passphrase\",\"message\":\"The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 5c70f4f4970cadb7d5ec927e634be355df964b52\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:22:03 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:34 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

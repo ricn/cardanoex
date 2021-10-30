@@ -334,7 +334,7 @@ defmodule Cardanoex.TransactionTest do
     test "list transactions with min withdrawal of 1", %{wallet: wallet} do
       use_cassette "list_transactions_with_min_withdrawal_of_1" do
         {:ok, transactions} = Transaction.list(wallet.id, min_withdrawal: 1)
-        assert transactions == []
+        assert length(transactions) > 0
       end
     end
   end

@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"kitten\",\"peanut\",\"term\",\"educate\",\"staff\",\"caution\",\"carry\",\"drift\",\"point\",\"album\",\"crucial\",\"medal\",\"vast\",\"oyster\",\"okay\",\"arch\",\"best\",\"february\",\"surface\",\"airport\",\"try\",\"arena\",\"antique\",\"silk\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"waste\",\"damage\",\"glory\",\"moment\",\"arrange\",\"embody\",\"access\",\"bonus\",\"ritual\",\"peanut\",\"change\",\"staff\",\"quit\",\"fame\",\"size\",\"mixture\",\"enemy\",\"ring\",\"destroy\",\"ankle\",\"million\",\"version\",\"duck\",\"width\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,10 +14,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-09-09T22:21:55.919010645Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"161fa76f826154a62c294b15d568717332039b9f\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:32.793642607Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"77de75bb0d757101219ad1c1577830043727e3da\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:21:56 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:31 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

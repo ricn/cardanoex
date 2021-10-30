@@ -13,7 +13,7 @@ defmodule Cardanoex.AssetTest do
     test "list assets successfully", %{wallet: wallet} do
       use_cassette "list_assets_successfully" do
         {:ok, assets} = Asset.list(wallet.id)
-        assert length(assets) == 1
+        assert length(assets) >= 1
       end
     end
 

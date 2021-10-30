@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"turtle\",\"sand\",\"law\",\"valid\",\"term\",\"drift\",\"parrot\",\"charge\",\"topic\",\"truly\",\"mule\",\"tribe\",\"hen\",\"ugly\",\"best\",\"zoo\",\"omit\",\"problem\",\"habit\",\"distance\",\"fly\",\"rely\",\"orange\",\"gas\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"height\",\"ghost\",\"mistake\",\"miss\",\"over\",\"debris\",\"nasty\",\"puppy\",\"excess\",\"fly\",\"pilot\",\"matrix\",\"volume\",\"globe\",\"south\",\"royal\",\"cloud\",\"practice\",\"vibrant\",\"pave\",\"true\",\"dirt\",\"that\",\"child\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,10 +14,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-09-09T22:21:53.149524022Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"e4792b08157bb18debb45c4cb37866e937224129\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:33.741293986Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"a7c9423ee842a6859d2cd0966cdec66c1c5dc5ea\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:21:53 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:33 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
@@ -36,14 +36,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/e4792b08157bb18debb45c4cb37866e937224129/passphrase"
+      "url": "http://206.81.24.0:8090/v2/wallets/a7c9423ee842a6859d2cd0966cdec66c1c5dc5ea/passphrase"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $['new_passphrase']: passphrase is too short: expected at least 10 characters\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:21:53 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:33 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

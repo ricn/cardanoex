@@ -59,7 +59,7 @@ defmodule Cardanoex.StakePoolTest do
   describe "join stake pool" do
     test "join stake pool successfully", %{wallet: wallet} do
       use_cassette "join_stake_pool_successfully" do
-        stake_pool_id = "pool1xqh4kl5gzn4av7uf32lxas5k8tsfgvhy3hlnrg0fdp98q42jswr"
+        stake_pool_id = "pool1c4jhs7epscp6p3evesesqqjk6ewnhtylttz4frh49qdx7l2khqx"
         passphrase = "Super_Sekret3.14!"
         {:ok, result} = StakePool.join(wallet.id, stake_pool_id, passphrase)
         assert result.id != nil
@@ -73,8 +73,10 @@ defmodule Cardanoex.StakePoolTest do
         passphrase = "Super_Sekret3.14!"
         {:error, message} = StakePool.quit(wallet.id, passphrase)
 
-        assert message ==
-                 "It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 7109490 lovelace first."
+        assert String.contains?(
+                 message,
+                 "It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account!"
+               )
       end
     end
   end

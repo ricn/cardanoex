@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"talent\",\"west\",\"office\",\"weapon\",\"nose\",\"vessel\",\"front\",\"seven\",\"enable\",\"spread\",\"cable\",\"title\"],\"mnemonic_sentence\":[\"eye\",\"garbage\",\"trash\",\"tourist\",\"patient\",\"beyond\",\"under\",\"alpha\",\"victory\",\"convince\",\"host\",\"guess\",\"solve\",\"attend\",\"federal\",\"best\",\"useful\",\"retire\",\"future\",\"banana\",\"insect\",\"style\",\"either\",\"aisle\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_second_factor\":[\"arm\",\"quick\",\"deny\",\"morning\",\"depend\",\"domain\",\"crane\",\"trap\",\"harbor\",\"iron\",\"embody\",\"cotton\"],\"mnemonic_sentence\":[\"insane\",\"crumble\",\"wire\",\"able\",\"artefact\",\"purity\",\"guide\",\"north\",\"brick\",\"brief\",\"above\",\"side\",\"virtual\",\"brave\",\"practice\",\"fluid\",\"remain\",\"hood\",\"enrich\",\"salute\",\"envelope\",\"december\",\"exercise\",\"shoot\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -14,10 +14,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-09-09T22:21:41.70174133Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"245535bdf20a42bb77e80050f142e1f958ba8fb5\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:28.454095723Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"9ad793ed36d14c7f6a264967a1edb8a8349b81db\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:21:41 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:28 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

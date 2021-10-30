@@ -14,10 +14,10 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"code\":\"non_null_rewards\",\"message\":\"It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 7109490 lovelace first.\"}",
+      "body": "{\"code\":\"non_null_rewards\",\"message\":\"It seems that you're trying to retire from delegation although you've unspoiled rewards in your rewards account! Make sure to withdraw your 766882 lovelace first.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:22:18 GMT",
+        "Date": "Sat, 30 Oct 2021 23:06:09 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

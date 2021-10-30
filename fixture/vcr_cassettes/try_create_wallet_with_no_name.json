@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"acquire\",\"tag\",\"truth\",\"wagon\",\"crane\",\"crouch\",\"hello\",\"decade\",\"spoon\",\"liquid\",\"situate\",\"faint\",\"vehicle\",\"alter\",\"elevator\",\"tunnel\",\"forest\",\"fold\",\"future\",\"page\",\"length\",\"trip\",\"horse\",\"sunset\"],\"name\":null,\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"comic\",\"friend\",\"age\",\"indicate\",\"shell\",\"embrace\",\"dilemma\",\"wage\",\"this\",\"sweet\",\"trash\",\"this\",\"social\",\"runway\",\"idea\",\"detail\",\"spawn\",\"produce\",\"warm\",\"crane\",\"city\",\"tower\",\"shell\",\"help\"],\"name\":null,\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -17,7 +17,7 @@
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.name: parsing WalletName failed, expected String, but encountered Null\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Thu, 09 Sep 2021 22:21:53 GMT",
+        "Date": "Sat, 30 Oct 2021 23:05:28 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
