@@ -35,10 +35,10 @@ defmodule Cardanoex.MixProject do
       {:tesla, "1.4.3"},
       {:hackney, "1.17.4"},
       {:jason, "1.2.2"},
-      {:ex_doc, "0.25.2", only: :dev, runtime: false},
+      {:ex_doc, "0.25.5", only: :dev, runtime: false},
       {:inch_ex, "2.0.0", only: :docs},
       {:exvcr, "0.13.2", only: :test},
-      {:excoveralls, "0.14.2"},
+      {:excoveralls, "0.14.4"},
       {:credo, "1.5.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "1.1.0", only: [:dev], runtime: false},
       {:doctor, "~> 0.18.0", only: :dev}
