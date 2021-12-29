@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":1000,\"mnemonic_sentence\":[\"off\",\"round\",\"like\",\"consider\",\"notice\",\"gaze\",\"wonder\",\"tourist\",\"quarter\",\"update\",\"item\",\"purchase\",\"twenty\",\"fly\",\"thumb\",\"stuff\",\"midnight\",\"traffic\",\"duck\",\"theme\",\"key\",\"simple\",\"play\",\"winner\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":1000,\"mnemonic_sentence\":[\"neither\",\"short\",\"couple\",\"actor\",\"puzzle\",\"nation\",\"spray\",\"alpha\",\"number\",\"denial\",\"limit\",\"nest\",\"prosper\",\"march\",\"lens\",\"vague\",\"excuse\",\"cash\",\"copper\",\"cloth\",\"web\",\"first\",\"rhythm\",\"action\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets"
+      "url": "http://localhost:8090/v2/wallets"
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:30.82843071Z\"},\"address_pool_gap\":1000,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"9402856d854fc26963bcfed193eb882aaed38905\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-12-29T21:39:02.47055Z\"},\"address_pool_gap\":1000,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"354d27db2a90ac62b65e3b52f8286a70fcce6fde\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:30 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:02 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

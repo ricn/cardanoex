@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52/payment-fees"
+      "url": "http://localhost:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52/payment-fees"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.payments[0].assets: parsing AddressAmount failed, Error while deserializing token map from JSON: Encountered zero-valued quantity for token '' within policy '6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7'.\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:43 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:12 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

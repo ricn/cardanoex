@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"then\",\"load\",\"guitar\",\"pottery\",\"sleep\",\"head\",\"horse\",\"home\",\"wreck\",\"dial\",\"behind\",\"check\",\"aim\",\"drum\",\"kidney\",\"pattern\",\"surprise\",\"grow\",\"today\",\"unique\",\"track\",\"puzzle\",\"absent\",\"degree\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"together\",\"trumpet\",\"venue\",\"exhaust\",\"indoor\",\"parade\",\"find\",\"often\",\"pumpkin\",\"exotic\",\"pulp\",\"robust\",\"neither\",\"runway\",\"total\",\"erode\",\"appear\",\"weasel\",\"time\",\"inside\",\"process\",\"main\",\"ski\",\"lesson\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets"
+      "url": "http://localhost:8090/v2/wallets"
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:20.670195895Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"ca0627b1aa2f36a0b8f9931a5180329b40ea104d\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-12-29T21:39:04.856035Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"4b39b0aa67ac75439ba490740dc8f82104db2a75\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:20 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:04 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
@@ -36,14 +36,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/ca0627b1aa2f36a0b8f9931a5180329b40ea104d/passphrase"
+      "url": "http://localhost:8090/v2/wallets/4b39b0aa67ac75439ba490740dc8f82104db2a75/passphrase"
     },
     "response": {
       "binary": false,
-      "body": "{\"code\":\"wrong_encryption_passphrase\",\"message\":\"The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: ca0627b1aa2f36a0b8f9931a5180329b40ea104d\"}",
+      "body": "{\"code\":\"wrong_encryption_passphrase\",\"message\":\"The given encryption passphrase doesn't match the one I use to encrypt the root private key of the given wallet: 4b39b0aa67ac75439ba490740dc8f82104db2a75\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:20 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:04 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

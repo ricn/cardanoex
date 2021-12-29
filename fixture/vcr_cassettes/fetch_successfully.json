@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"group\",\"claim\",\"panel\",\"brother\",\"bird\",\"place\",\"warm\",\"kick\",\"black\",\"salad\",\"sand\",\"length\",\"glance\",\"toast\",\"dilemma\",\"enough\",\"vintage\",\"bean\",\"digital\",\"detail\",\"truth\",\"dinner\",\"also\",\"oppose\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"size\",\"tower\",\"vicious\",\"volume\",\"exact\",\"foster\",\"horn\",\"general\",\"polar\",\"skull\",\"minor\",\"penalty\",\"spot\",\"just\",\"math\",\"twist\",\"shuffle\",\"demand\",\"circle\",\"team\",\"there\",\"concert\",\"merit\",\"census\"],\"name\":\"wallet #1\",\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets"
+      "url": "http://localhost:8090/v2/wallets"
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-30T23:05:21.813389597Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"9a8956c4f4553d835ffa73d440a1c132085b8d18\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-12-29T21:39:06.704398Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"syncing\",\"progress\":{\"quantity\":0,\"unit\":\"percent\"}},\"balance\":{\"reward\":{\"quantity\":0,\"unit\":\"lovelace\"},\"total\":{\"quantity\":0,\"unit\":\"lovelace\"},\"available\":{\"quantity\":0,\"unit\":\"lovelace\"}},\"name\":\"wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"not_delegating\"}},\"id\":\"84f9db7c407bbf6941cac31d420663c76fffe3dd\",\"tip\":{\"height\":{\"quantity\":0,\"unit\":\"block\"},\"time\":\"2019-07-24T20:20:16Z\",\"epoch_number\":0,\"absolute_slot_number\":0,\"slot_number\":0},\"assets\":{\"total\":[],\"available\":[]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:21 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:06 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
@@ -34,14 +34,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/9a8956c4f4553d835ffa73d440a1c132085b8d18/statistics/utxos"
+      "url": "http://localhost:8090/v2/wallets/84f9db7c407bbf6941cac31d420663c76fffe3dd/statistics/utxos"
     },
     "response": {
       "binary": false,
       "body": "{\"distribution\":{\"10000000000000000\":0,\"100000000000000\":0,\"1000000000000\":0,\"10000000000\":0,\"100000000\":0,\"1000000\":0,\"10000\":0,\"100\":0,\"1000000000\":0,\"100000000000\":0,\"10\":0,\"45000000000000000\":0,\"1000\":0,\"10000000000000\":0,\"1000000000000000\":0,\"100000\":0,\"10000000\":0},\"scale\":\"log10\",\"total\":{\"quantity\":0,\"unit\":\"lovelace\"}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:21 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:06 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

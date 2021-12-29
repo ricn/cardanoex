@@ -8,14 +8,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52"
+      "url": "http://localhost:8090/v2/wallets/5c70f4f4970cadb7d5ec927e634be355df964b52"
     },
     "response": {
       "binary": false,
-      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-10-25T12:23:14.98304982Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"ready\"},\"balance\":{\"reward\":{\"quantity\":766882,\"unit\":\"lovelace\"},\"total\":{\"quantity\":2788236559,\"unit\":\"lovelace\"},\"available\":{\"quantity\":2787469677,\"unit\":\"lovelace\"}},\"name\":\"Wallet #1\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"delegating\",\"target\":\"pool1xqh4kl5gzn4av7uf32lxas5k8tsfgvhy3hlnrg0fdp98q42jswr\"}},\"id\":\"5c70f4f4970cadb7d5ec927e634be355df964b52\",\"tip\":{\"height\":{\"quantity\":3033430,\"unit\":\"block\"},\"time\":\"2021-10-30T23:04:53Z\",\"epoch_number\":165,\"absolute_slot_number\":41265877,\"slot_number\":355477},\"assets\":{\"total\":[{\"asset_name\":\"45524358\",\"quantity\":1288447319,\"policy_id\":\"36e93afe19e46227069520040012411e17839f219b549b7f5ac83b68\"},{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}],\"available\":[{\"asset_name\":\"45524358\",\"quantity\":1288447319,\"policy_id\":\"36e93afe19e46227069520040012411e17839f219b549b7f5ac83b68\"},{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}]}}",
+      "body": "{\"passphrase\":{\"last_updated_at\":\"2021-12-29T21:24:52.663074Z\"},\"address_pool_gap\":20,\"state\":{\"status\":\"ready\"},\"balance\":{\"reward\":{\"quantity\":8435852,\"unit\":\"lovelace\"},\"total\":{\"quantity\":2790236724,\"unit\":\"lovelace\"},\"available\":{\"quantity\":2781800872,\"unit\":\"lovelace\"}},\"name\":\"wallet_with_funds\",\"delegation\":{\"next\":[],\"active\":{\"status\":\"delegating\",\"target\":\"pool1c4jhs7epscp6p3evesesqqjk6ewnhtylttz4frh49qdx7l2khqx\"}},\"id\":\"5c70f4f4970cadb7d5ec927e634be355df964b52\",\"tip\":{\"height\":{\"quantity\":3194165,\"unit\":\"block\"},\"time\":\"2021-12-29T21:38:32Z\",\"epoch_number\":177,\"absolute_slot_number\":46444696,\"slot_number\":350296},\"assets\":{\"total\":[{\"asset_name\":\"45524358\",\"quantity\":1288447319,\"policy_id\":\"36e93afe19e46227069520040012411e17839f219b549b7f5ac83b68\"},{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}],\"available\":[{\"asset_name\":\"45524358\",\"quantity\":1288447319,\"policy_id\":\"36e93afe19e46227069520040012411e17839f219b549b7f5ac83b68\"},{\"asset_name\":\"\",\"quantity\":4,\"policy_id\":\"6b8d07d69639e9413dd637a1a815a7323c69c86abbafb66dbfdb1aa7\"}]}}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:33 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:09 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

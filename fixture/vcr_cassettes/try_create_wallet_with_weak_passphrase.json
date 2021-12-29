@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"skate\",\"reflect\",\"celery\",\"demise\",\"avocado\",\"island\",\"aerobic\",\"still\",\"used\",\"goose\",\"dragon\",\"attitude\",\"bring\",\"mom\",\"exhibit\",\"crane\",\"nuclear\",\"runway\",\"black\",\"orbit\",\"leg\",\"opinion\",\"boy\",\"shop\"],\"name\":\"wallet #1\",\"passphrase\":\"weak\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"kitten\",\"adult\",\"car\",\"original\",\"blast\",\"wing\",\"mesh\",\"friend\",\"illegal\",\"slush\",\"grunt\",\"local\",\"train\",\"final\",\"two\",\"slot\",\"injury\",\"office\",\"public\",\"parade\",\"donkey\",\"surprise\",\"drop\",\"powder\"],\"name\":\"wallet #1\",\"passphrase\":\"weak\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets"
+      "url": "http://localhost:8090/v2/wallets"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.passphrase: passphrase is too short: expected at least 10 characters\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:33 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:01 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },

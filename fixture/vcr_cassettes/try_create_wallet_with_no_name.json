@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"comic\",\"friend\",\"age\",\"indicate\",\"shell\",\"embrace\",\"dilemma\",\"wage\",\"this\",\"sweet\",\"trash\",\"this\",\"social\",\"runway\",\"idea\",\"detail\",\"spawn\",\"produce\",\"warm\",\"crane\",\"city\",\"tower\",\"shell\",\"help\"],\"name\":null,\"passphrase\":\"Super_Sekret3.14!\"}",
+      "body": "{\"address_pool_gap\":20,\"mnemonic_sentence\":[\"plug\",\"rare\",\"betray\",\"other\",\"frown\",\"aerobic\",\"erode\",\"someone\",\"correct\",\"tide\",\"vivid\",\"message\",\"stuff\",\"buzz\",\"apology\",\"gesture\",\"strike\",\"cat\",\"blade\",\"army\",\"fringe\",\"wash\",\"dumb\",\"olive\"],\"name\":null,\"passphrase\":\"Super_Sekret3.14!\"}",
       "headers": {
         "content-type": "application/json"
       },
@@ -10,14 +10,14 @@
         "recv_timeout": 30000
       },
       "request_body": "",
-      "url": "http://206.81.24.0:8090/v2/wallets"
+      "url": "http://localhost:8090/v2/wallets"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":\"bad_request\",\"message\":\"Error in $.name: parsing WalletName failed, expected String, but encountered Null\"}",
       "headers": {
         "Transfer-Encoding": "chunked",
-        "Date": "Sat, 30 Oct 2021 23:05:28 GMT",
+        "Date": "Wed, 29 Dec 2021 21:39:04 GMT",
         "Server": "Warp/3.3.17",
         "Content-Type": "application/json;charset=utf-8"
       },
