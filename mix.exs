@@ -33,15 +33,15 @@ defmodule Cardanoex.MixProject do
     [
       {:mnemonic, "0.3.0"},
       {:tesla, "1.4.4"},
-      {:hackney, "1.18.0"},
+      {:hackney, "1.18.1"},
       {:jason, "1.3.0"},
-      {:ex_doc, "0.26.0", only: :dev, runtime: false},
+      {:ex_doc, "0.28.3", only: :dev, runtime: false},
       {:inch_ex, "2.0.0", only: :docs},
-      {:exvcr, "0.13.2", only: :test},
+      {:exvcr, "0.13.3", only: :test},
       {:excoveralls, "0.14.4"},
-      {:credo, "1.6.1", only: [:dev, :test], runtime: false},
+      {:credo, "1.6.4", only: [:dev, :test], runtime: false},
       {:dialyxir, "1.1.0", only: [:dev], runtime: false},
-      {:doctor, "~> 0.18.0", only: :dev}
+      {:doctor, "0.18.0", only: :dev}
     ]
   end
 
